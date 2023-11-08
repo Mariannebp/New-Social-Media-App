@@ -1,0 +1,40 @@
+// Colors //
+
+$pink-light:     #d6338444;
+$pink:           #d63384;
+$pink-medium:    #a00452;
+$pink-dark:      #53002a;
+$blue:           #22009b;
+$yellow:         #ffc107;
+$gray-light:     #f8f9fa;
+$gray-medium:    #b9b9b9;
+$gray-dark:      #212529;
+$white:          #fff;
+
+
+$primary:       $white;
+$secondary:     $gray-dark;
+$info:          $pink-dark;
+$headerbg:      $pink-light;
+$buttonbg:      $pink-medium;
+$medium:        $gray-medium;
+$dark:          $gray-dark;
+$like:          $yellow;
+$edit:          $blue;
+$delete:        $medium;
+
+
+$theme-colors: (
+  "buttonbg":   $buttonbg,
+  "info":       $info,
+  "headerbg":   $headerbg,
+  "like":       $like,
+  "medium":     $medium,
+  "dark":       $dark,
+  "edit":       $edit,
+  "delete":     $delete
+);
+
+$headings-color: $pink-medium;
+
+

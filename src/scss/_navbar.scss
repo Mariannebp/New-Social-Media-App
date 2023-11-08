@@ -1,0 +1,13 @@
+header {
+  background-color: $headerbg;
+  border-bottom: 1px solid $info;
+}
+
+header,
+header li a.nav-link,
+header li.nav-link,
+header a.dropdown-item {
+  color: $info;
+}
+
+$nav-link-hover-color: none;

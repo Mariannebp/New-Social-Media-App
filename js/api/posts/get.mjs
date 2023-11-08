@@ -20,16 +20,6 @@ export async function getPosts() {
   return await response.json();
 }
 
-// /**
-//  * function that call for up to 500 posts from the API
-//  */
-// export async function getPostsMany() {
-//   const getPostsUrl = `${socialBaseUrl}${action}${author}`;
-//   const response = await authFetch(getPostsUrl);
-
-//   return await response.json();
-// }
-
 /**
  * function that call for up to 500 posts from the API
  */
@@ -37,7 +27,6 @@ export async function getPostsProfile() {
   const getPostsUrl = `${socialBaseUrl}${profile}${name}${action}${author}`;
 
   const response = await authFetch(getPostsUrl);
-  console.log(getPostsUrl)
   return await response.json();
 }
 

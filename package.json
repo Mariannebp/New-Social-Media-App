@@ -21,7 +21,7 @@
   "homepage": "https://github.com/Mariannebp/CSS-Frameworks-CA#readme",
   "devDependencies": {
     "live-server": "^1.2.2",
-    "sass": "^1.55.0"
+    "sass": "^1.69.5"
   },
   "dependencies": {
     "bootstrap": "^5.2.1"

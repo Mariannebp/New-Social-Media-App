@@ -15,40 +15,22 @@
   <body
     class="d-flex flex-column min-vh-100 bg-primary bg-gradient text-secondary"
   >
-    <header class="p-3 mb-3">
+    <header class="p-1 mb-3">
       <div class="container">
-        <div
-          class="row align-items-center justify-content-center justify-content-lg-start"
-        >
-          <ul
-            class="col-lg-2 nav me-lg-auto mb-2 justify-content-center mb-md-0"
-          >
-            <li class="nav-link px-2 fst-italic">Home</li>
-          </ul>
-
-          <form class="col-md-auto mb-3 mb-lg-0 me-lg-3" role="search">
-            <input
-              type="search"
-              id="search"
-              class="form-control"
-              placeholder="Search..."
-              aria-label="Search"
-            />
-          </form>
-
-          <div class="col-1 dropdown text-end">
+        <div class="row align-items-center justify-content-between justify-content-lg-start">
+          <div class="col nav me-lg-auto mb-2 justify-content-center mb-md-0">
             <a
               href="#"
-              class="d-block link-info text-decoration-none dropdown-toggle"
+              class="d-block link-info text-decoration-none"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
               <img
-                src="/img/avatar-1606939.png"
-                alt="avatar"
+                src="/assets/icons/list.svg"
+                alt="menu"
                 width="32"
                 height="32"
-                class="rounded-circle"
+                class=""
               />
             </a>
             <ul class="dropdown-menu text-small">
@@ -69,23 +51,24 @@
                 >
               </li>
             </ul>
-          </div>
         </div>
-      </div>
+          <div class="col text-center">
+            <a id="logo" class="text-secondary" href="/index.html">The Place</a>
+          </div>
+          <div class="col dropdown text-center">
+            <a href="/pages/profile.html">
+              <img
+                src="/assets/img/avatar-1606939.png"
+                alt="avatar"
+                width="32"
+                height="32"
+                class="rounded-circle"
+              />
+            </a>
+        </div>
     </header>
     <main class="container mt-auto mb-auto" style="max-width: 900px">
-      <section class="m-auto mb-5">
-        <div>
-          <h1 class="m-4 mb-0">The Community</h1>
-          <p class="m-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-            repellendus illum officiis repudiandae eum vero quod velit molestias
-            natus! Nulla, voluptatibus expedita repellendus fugit laboriosam
-            repudiandae voluptatum magni ducimus fuga.
-          </p>
-        </div>
-      </section>
-      <section class="m-auto mb-5" style="max-width: 700px">
+      <section class="m-auto mt-4 mb-5" style="max-width: 700px">
         <div class="shadow rounded m-auto p-3">
           <h3>Add a new post</h3>
           <form
@@ -124,7 +107,19 @@
           class="d-flex dropdown justify-content-end me-3"
           id="filterContainer"
         >
-          <a
+          <div>
+            <form class="col-md-auto mb-3 mb-lg-0 me-lg-3" role="search">
+              <input
+                type="search"
+                id="search"
+                class="form-control"
+                placeholder="Search..."
+                aria-label="Search"
+              />
+            </form>
+          </div>
+          <div>
+            <a
             href="#"
             class="d-flex link-info text-decoration-none"
             data-bs-toggle="dropdown"
@@ -157,6 +152,8 @@
               >
             </li>
           </ul>
+          </div>
+          
         </div>
         <div id="postsFeed"></div>
       </section>
@@ -177,7 +174,7 @@
           >
         </li>
       </ul>
-      <p class="text-center text-muted">© 2022 Marianne Bjerløv Pedersen</p>
+      <p class="text-center text-muted">© 2024 Marianne Bjerløv Pedersen</p>
     </footer>
   </body>
 </html>

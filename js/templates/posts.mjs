@@ -53,7 +53,7 @@ export function postTemplate(postData) {
       postAuthor.innerHTML = name;
 
       const UserAvatar = document.createElement("img");
-      UserAvatar.src = "/img/avatar-1606939.png";
+      UserAvatar.src = "/assets/img/avatar-1606939.png";
       UserAvatar.classList.add("ms-3", "d-flex");
       UserAvatar.alt = "Avatar";
       UserAvatar.height = "32";

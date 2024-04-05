@@ -32,7 +32,7 @@ export async function getProfile() {
   } else {
     const img = document.createElement("img");
     img.classList.add("d-flex", "align-items-center", "m-auto", "w-50")
-    img.src = "/img/avatar-1606939.png";
+    img.src = "/assets/img/avatar-1606939.png";
     img.alt = "Profile avatar default";
     userAvatar.append(img);
   }

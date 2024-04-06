@@ -1,4 +1,3 @@
-import { load } from "../storage/index.mjs";
 import { removePost } from "../api/posts/remove.mjs";
 
 
@@ -14,10 +13,8 @@ export function postTemplate(postData) {
 
   if (path === `/pages/singlePost.html`) {
     const headTitle = document.querySelector("title");
-    const navTitle = document.querySelector("#navTitle");
 
     headTitle.innerHTML = title;
-    navTitle.innerHTML = title;
   }
 
   const post = document.createElement("div");
@@ -68,7 +65,7 @@ export function postTemplate(postData) {
   postDate.innerHTML = date;
 
   const postTitle = document.createElement("h4");
-  postTitle.classList.add("font-monospace", "m-3", "text-center");
+  postTitle.classList.add("font-monospace", "m-3", "text-center", "text-break");
   postTitle.innerHTML = title;
 
   postContent.append(postDate, postTitle)

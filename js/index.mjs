@@ -24,6 +24,7 @@ if (path === `/pages/login.html`) {
   setUpdatePostListener();
   setLogoutListener();
 } else if (path === `/index.html`) {
+  profile.checkIfLoggedInContent();
   setCreateNewPostListener();
   posts.getPostsFeed();
   posts.getPostsFeedSearched();

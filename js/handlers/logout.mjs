@@ -7,8 +7,7 @@ export function setLogoutListener() {
   const logoutButton = document.querySelector("#logout");
   logoutButton.addEventListener("click", () => {
     logout();
-    alert("You are now logged out")
-    // location.reload();
-    location.href = "/index.html";
+    alert("You are now logged out");
+    location.href = "/pages/login.html";
   });
 }

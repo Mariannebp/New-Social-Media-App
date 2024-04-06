@@ -4,8 +4,8 @@ import { load } from "../../storage/index.mjs";
 
 const action = "/posts";
 const profile = "/profiles/";
-const user = load("profile")
-const { name } = user;
+const user = load("profile");
+
 const author = "?_author=true";
 
 /**
@@ -23,7 +23,7 @@ export async function getPosts() {
  * function that call for posts by the author
  */
 export async function getPostsProfile() {
-  const getPostsUrl = `${socialBaseUrl}${profile}${name}${action}${author}`;
+  const getPostsUrl = `${socialBaseUrl}${profile}${user.name}${action}${author}`;
 
   const response = await authFetch(getPostsUrl);
   return await response.json();

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Media</title>
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+    <script type="module" src="../js/index.mjs" defer></script>
+    <script
+      src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+  </head>
+  <body
+    class="d-flex flex-column min-vh-100 bg-primary bg-gradient text-secondary"
+  >
+    <header class="p-1 mb-3">
+      <div class="container">
+        <div class="row align-items-center justify-content-between justify-content-lg-start">
+          <div class="col nav me-lg-auto mb-2 justify-content-center mb-md-0">
+            <a
+              href="#"
+              class="d-block link-info text-decoration-none"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img
+                src="/assets/icons/list.svg"
+                alt="menu"
+                width="32"
+                height="32"
+                class=""
+              />
+            </a>
+            <ul class="dropdown-menu text-small">
+              <li>
+                <a class="dropdown-item text-info" href="/pages/login.html"
+                  >Log In</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item text-info" href="/pages/register.html"
+                  >Register</a
+                >
+              </li>
+            </ul>
+        </div>
+          <div class="col text-center">
+            <a id="logo" class="text-secondary" href="/index.html">The Place</a>
+          </div>
+          <div class="col dropdown text-center">
+            <a href="/pages/profile.html">
+              <img
+                src="/assets/img/avatar-1606939.png"
+                alt="avatar"
+                width="32"
+                height="32"
+                class="rounded-circle"
+              />
+            </a>
+        </div>
+    </header>
+    <main class="container mt-auto mb-auto" style="max-width: 900px">
+      <div class="text-center my-5">
+        <h1 class="m-4 fs-2">You must be logged in to view this content</h1>
+        <a class="text-info fs-4 text-decoration-none" href="./login.html">Please log in here</a>
+      </div>`
+    </main>
+    <footer class="py-4">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item">
+          <a href="#" class="nav-link px-2 text-muted">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="/pages/profile.html" class="nav-link px-2 text-muted"
+            >My Profile</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="/pages/login.html" class="nav-link px-2 text-muted"
+            >Log In</a
+          >
+        </li>
+      </ul>
+      <p class="text-center text-muted">© 2024 Marianne Bjerløv Pedersen</p>
+    </footer>
+  </body>
+</html>

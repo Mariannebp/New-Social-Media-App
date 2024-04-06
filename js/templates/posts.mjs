@@ -35,10 +35,12 @@ export function postTemplate(postData) {
       postAuthor.innerHTML = name;
 
       const userAvatar = document.createElement("img");
-      userAvatar.classList.add("ms-3", "d-flex", "justify-items-start")
+      userAvatar.classList.add("ms-3", "d-flex", "justify-items-start", "rounded-circle")
       userAvatar.src = avatar;
       userAvatar.alt = "Avatar";
-      userAvatar.height = "32";
+      userAvatar.height = "36";
+      userAvatar.width = "36";
+      userAvatar.style.objectFit = "cover";
       user.append(userAvatar, postAuthor)
       postContent.append(user)
     } else {
@@ -53,7 +55,7 @@ export function postTemplate(postData) {
       UserAvatar.src = "/assets/img/avatar-1606939.png";
       UserAvatar.classList.add("ms-3", "d-flex");
       UserAvatar.alt = "Avatar";
-      UserAvatar.height = "32";
+      UserAvatar.height = "36";
       user.append(UserAvatar, postAuthor)
       postContent.append(user)
     }
@@ -214,7 +216,7 @@ export function renderPostFeedSearched(postDataList, parent) {
     container.innerHTML = "";
 
     postDataList.forEach(i => {
-      if (i.title.toLowerCase().startsWith(searchValue) || i.author.name.toLowerCase().startsWith(searchValue)) {
+      if (i.title.toLowerCase().startsWith(searchValue)) {
         parent.append(postTemplate(i));
       }
     })

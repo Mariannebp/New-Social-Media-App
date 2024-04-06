@@ -51,14 +51,7 @@
             <a id="logo" class="text-secondary" href="/index.html">The Place</a>
           </div>
           <div class="col dropdown text-center">
-            <a href="/pages/profile.html">
-              <img
-                src="/assets/img/avatar-1606939.png"
-                alt="avatar"
-                width="32"
-                height="32"
-                class="rounded-circle"
-              />
+            <a id="headerAvatar" href="/pages/profile.html">
             </a>
         </div>
     </header>
@@ -98,12 +91,9 @@
       </section>
       <section class="m-auto mb-5">
         <h2>News</h2>
-        <div
-          class="d-flex dropdown justify-content-end me-3"
-          id="filterContainer"
-        >
+        <div class="d-flex dropdown align-items-center justify-content-end me-3" id="filterContainer">
           <div>
-            <form class="col-md-auto mb-3 mb-lg-0 me-lg-3" role="search">
+            <form class="col-md-auto mb-3 me-3" role="search">
               <input
                 type="search"
                 id="search"
@@ -115,40 +105,33 @@
           </div>
           <div>
             <a
-            href="#"
-            class="d-flex link-info text-decoration-none"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <p class="me-2" id="filterText">Filter</p>
-            <p class="dropdown-toggle"></p>
-          </a>
-
+              href="#"
+              class="d-flex link-info text-decoration-none"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <p class="me-2" id="filterText">Filter</p>
+              <p class="dropdown-toggle"></p>
+            </a>
           <ul class="dropdown-menu text-small">
             <li>
               <a class="dropdown-item text-info" id="newest"
-                >Newest (default)</a
-              >
+                >Newest (default)</a>
             </li>
             <li><hr class="dropdown-divider" /></li>
             <li>
               <a class="dropdown-item text-info" id="twentyFour"
-                >Last 24 hours</a
-              >
+                >Last 24 hours</a>
             </li>
             <li>
               <a class="dropdown-item text-info" id="moreThenTwentyFour"
-                >More than 24 hours ago</a
-              >
+                >More than 24 hours ago</a>
             </li>
             <li>
               <a class="dropdown-item text-info" id="moreThenWeek"
-                >More then 7 days ago</a
-              >
+                >More then 7 days ago</a>
             </li>
           </ul>
           </div>
-          
         </div>
         <div id="postsFeed"></div>
       </section>

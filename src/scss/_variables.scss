@@ -1,40 +1,34 @@
 // Colors //
 
 $light-pink: #F2A1C7;
-$blue: #4A6FA5;
-$light-blue: #52D1DC;
 $redwine: #830A48;
-// $blue: #22009b;
-$yellow: #ffc107;
-$gray-light: #f8f9fa;
+$blue: #4A6FA5;
+$gray-light: #F5F5F5;
 $gray-medium: #b9b9b9;
-$gray-dark: #212529;
 $white: #fefefe;
 
 
 $primary: $light-pink;
 $secondary: $blue;
-$info: $redwine;
 $headerbg: $light-pink;
-$buttonbg: $redwine;
+$buttonmain: $redwine;
+$info: $redwine;
+$gray: $gray-light;
 $medium: $gray-medium;
-$dark: $gray-dark;
-$like: $yellow;
-$edit: $blue;
-$delete: $light-blue;
+$buttonedit: $blue;
+$buttondelete: $gray-medium;
 
 
 $theme-colors: (
   "primary": $primary,
   "secondary": $secondary,
-  "buttonbg": $buttonbg,
+  "buttonmain": $buttonmain,
   "info": $info,
   "headerbg": $headerbg,
-  "like": $like,
+  "gray": $gray,
   "medium": $medium,
-  "dark": $dark,
-  "edit": $edit,
-  "delete": $delete
+  "buttonedit": $buttonedit,
+  "buttondelete": $buttondelete
 );
 
 $headings-color: $blue;

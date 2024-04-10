@@ -18,11 +18,11 @@ export function postTemplate(postData) {
   }
 
   const post = document.createElement("div");
-  post.classList.add("shadow", "rounded", "m-auto", "mb-4", "p-3");
+  post.classList.add("shadow", "rounded", "bg-gray", "m-auto", "mb-4", "p-3");
   post.setAttribute("style", "max-width: 900px");
 
   const postContent = document.createElement("div");
-  postContent.classList.add("border")
+  postContent.classList.add("border", "border-info")
   post.append(postContent)
 
   if (path === `/index.html` || path === `/pages/singlePost.html`) {
@@ -101,11 +101,11 @@ export function postTemplate(postData) {
     const buttons = document.createElement("div");
     buttons.classList.add("d-flex", "justify-content-end", "align-items-center", "m-3");
     const editButton = document.createElement("button");
-    editButton.classList.add("btn", "btn-edit", "me-3");
+    editButton.classList.add("btn", "btn-buttonedit", "me-3");
     editButton.setAttribute("id", "editButton");
     editButton.innerHTML = "Edit";
     const deleteButton = document.createElement("button");
-    deleteButton.classList.add("btn", "btn-delete", "me-3");
+    deleteButton.classList.add("btn", "btn-buttondelete", "me-3");
     deleteButton.setAttribute("id", "deleteButton");
     deleteButton.innerHTML = "Delete";
     buttons.append(editButton, deleteButton);

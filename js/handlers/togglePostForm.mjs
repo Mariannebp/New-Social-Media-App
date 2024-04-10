@@ -3,7 +3,7 @@
 /**
  * Toggles Add a New Post form on home page
  */
-export function togglePostForm() {
+export function setTogglePostFormListener() {
   const toggleForm = document.querySelector("#newPost");
   const postForm = document.querySelector("#addNewPost");
 

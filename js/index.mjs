@@ -1,38 +1,33 @@
-import { setRegisterUserFormListener } from "./handlers/register.mjs";
-import { setLoginUserFormListener } from "./handlers/login.mjs";
-import { setUpdatePostListener } from "./handlers/updatePost.mjs";
-import { setCreateNewPostListener } from "./handlers/createPost.mjs";
 import * as profile from "./api/profile/index.mjs";
 import * as posts from "./handlers/getPosts.mjs";
-import { setLogoutListener } from "./handlers/logout.mjs";
-import { togglePostForm } from "./handlers/togglePostForm.mjs";
+import * as handler from "./handlers/index.mjs";
 
 const path = location.pathname;
 
 if (path === `/pages/login.html`) {
-  setLoginUserFormListener();
+  handler.setLoginUserFormListener();
 } else if (path === `/pages/register.html`) {
-  setRegisterUserFormListener();
+  handler.setRegisterUserFormListener();
 } else if (path === `/pages/profile.html`) {
   profile.checkIfLoggedIn();
   profile.getProfile();
-  setCreateNewPostListener();
+  handler.setCreateNewPostListener();
   posts.getPostFeedUser();
-  setLogoutListener();
+  handler.setLogoutListener();
 } else if (path === `/pages/editPost.html`) {
   profile.checkIfLoggedIn();
-  setUpdatePostListener();
-  setLogoutListener();
+  handler.setUpdatePostListener();
+  handler.setLogoutListener();
 } else if (path === `/index.html`) {
   profile.checkIfLoggedIn();
-  togglePostForm();
-  setCreateNewPostListener();
+  handler.setTogglePostFormListener();
+  handler.setCreateNewPostListener();
   posts.getPostsFeed();
   posts.getPostsFeedSearched();
   posts.getPostFeedFiltered();
-  setLogoutListener();
+  handler.setLogoutListener();
 } else if (path === `/pages/singlePost.html`) {
   profile.checkIfLoggedIn();
   posts.getPostSingle();
-  setLogoutListener();
+  handler.setLogoutListener();
 } 

@@ -1,4 +1,3 @@
-import { load } from "../storage/index.mjs";
 import { removePost } from "../api/posts/remove.mjs";
 
 
@@ -14,18 +13,16 @@ export function postTemplate(postData) {
 
   if (path === `/pages/singlePost.html`) {
     const headTitle = document.querySelector("title");
-    const navTitle = document.querySelector("#navTitle");
 
     headTitle.innerHTML = title;
-    navTitle.innerHTML = title;
   }
 
   const post = document.createElement("div");
-  post.classList.add("shadow", "rounded", "m-auto", "mb-4", "p-3");
+  post.classList.add("shadow", "rounded", "bg-gray", "m-auto", "mb-4", "p-3");
   post.setAttribute("style", "max-width: 900px");
 
   const postContent = document.createElement("div");
-  postContent.classList.add("border")
+  postContent.classList.add("border", "border-info")
   post.append(postContent)
 
   if (path === `/index.html` || path === `/pages/singlePost.html`) {
@@ -38,10 +35,12 @@ export function postTemplate(postData) {
       postAuthor.innerHTML = name;
 
       const userAvatar = document.createElement("img");
-      userAvatar.classList.add("ms-3", "d-flex", "justify-items-start")
+      userAvatar.classList.add("ms-3", "d-flex", "justify-items-start", "rounded-circle")
       userAvatar.src = avatar;
       userAvatar.alt = "Avatar";
-      userAvatar.height = "32";
+      userAvatar.height = "36";
+      userAvatar.width = "36";
+      userAvatar.style.objectFit = "cover";
       user.append(userAvatar, postAuthor)
       postContent.append(user)
     } else {
@@ -53,10 +52,10 @@ export function postTemplate(postData) {
       postAuthor.innerHTML = name;
 
       const UserAvatar = document.createElement("img");
-      UserAvatar.src = "/img/avatar-1606939.png";
+      UserAvatar.src = "/assets/img/avatar-1606939.png";
       UserAvatar.classList.add("ms-3", "d-flex");
       UserAvatar.alt = "Avatar";
-      UserAvatar.height = "32";
+      UserAvatar.height = "36";
       user.append(UserAvatar, postAuthor)
       postContent.append(user)
     }
@@ -68,7 +67,7 @@ export function postTemplate(postData) {
   postDate.innerHTML = date;
 
   const postTitle = document.createElement("h4");
-  postTitle.classList.add("font-monospace", "m-3", "text-center");
+  postTitle.classList.add("font-monospace", "m-3", "text-center", "text-break");
   postTitle.innerHTML = title;
 
   postContent.append(postDate, postTitle)
@@ -102,11 +101,11 @@ export function postTemplate(postData) {
     const buttons = document.createElement("div");
     buttons.classList.add("d-flex", "justify-content-end", "align-items-center", "m-3");
     const editButton = document.createElement("button");
-    editButton.classList.add("btn", "btn-edit", "me-3");
+    editButton.classList.add("btn", "btn-buttonedit", "me-3");
     editButton.setAttribute("id", "editButton");
     editButton.innerHTML = "Edit";
     const deleteButton = document.createElement("button");
-    deleteButton.classList.add("btn", "btn-delete", "me-3");
+    deleteButton.classList.add("btn", "btn-buttondelete", "me-3");
     deleteButton.setAttribute("id", "deleteButton");
     deleteButton.innerHTML = "Delete";
     buttons.append(editButton, deleteButton);
@@ -217,7 +216,7 @@ export function renderPostFeedSearched(postDataList, parent) {
     container.innerHTML = "";
 
     postDataList.forEach(i => {
-      if (i.title.toLowerCase().startsWith(searchValue) || i.author.name.toLowerCase().startsWith(searchValue)) {
+      if (i.title.toLowerCase().startsWith(searchValue)) {
         parent.append(postTemplate(i));
       }
     })

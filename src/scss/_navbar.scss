@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Inspiration&family=Work+Sans:wght@300&display=swap');
+
 header {
   background-color: $headerbg;
-  border-bottom: 1px solid $info;
 }
 
 header,
@@ -8,6 +9,12 @@ header li a.nav-link,
 header li.nav-link,
 header a.dropdown-item {
   color: $info;
+}
+
+#logo {
+  font-family: "Inspiration";
+  font-size: clamp(1.9rem, 5vw, 4rem);
+  text-decoration: none;
 }
 
 $nav-link-hover-color: none;

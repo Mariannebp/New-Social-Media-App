@@ -58,10 +58,13 @@
     <main class="container mt-auto mb-auto" style="max-width: 900px">
       <section class="m-auto mt-4 mb-5" style="max-width: 700px">
         <div class="shadow rounded bg-gray m-auto p-3">
-          <h3>Add a new post</h3>
+          <a id="newPost" class="btn">
+            <h1 class="h5">Add a new post</h1>
+          </a>
           <form
-            class="d-flex flex-column justify-content-center"
+            class="d-flex flex-column justify-content-center visually-hidden"
             id="addNewPost"
+            
           >
             <label for="title" class="form-label text-start">Title</label>
             <input type="text" id="title" class="form-control mb-2" required />
@@ -82,7 +85,6 @@
               id="media"
               required
             />
-
             <div class="d-flex justify-content-end">
               <button class="mt-2 btn btn-buttonmain">Post</button>
             </div>

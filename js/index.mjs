@@ -5,6 +5,7 @@ import { setCreateNewPostListener } from "./handlers/createPost.mjs";
 import * as profile from "./api/profile/index.mjs";
 import * as posts from "./handlers/getPosts.mjs";
 import { setLogoutListener } from "./handlers/logout.mjs";
+import { togglePostForm } from "./handlers/togglePostForm.mjs";
 
 const path = location.pathname;
 
@@ -14,7 +15,6 @@ if (path === `/pages/login.html`) {
   setRegisterUserFormListener();
 } else if (path === `/pages/profile.html`) {
   profile.checkIfLoggedIn();
-
   profile.getProfile();
   setCreateNewPostListener();
   posts.getPostFeedUser();
@@ -25,6 +25,7 @@ if (path === `/pages/login.html`) {
   setLogoutListener();
 } else if (path === `/index.html`) {
   profile.checkIfLoggedIn();
+  togglePostForm();
   setCreateNewPostListener();
   posts.getPostsFeed();
   posts.getPostsFeedSearched();

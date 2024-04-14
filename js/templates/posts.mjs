@@ -6,7 +6,7 @@ import { removePost } from "../api/posts/remove.mjs";
  * @param {string} postData that fetches the posts to be displayed.
  */
 export function postTemplate(postData) {
-  const { title, media, body, author, updated, id } = postData;
+  const { title, media, body, author, updated, id, _count } = postData;
   const { name, avatar } = author;
 
   const path = location.pathname;
@@ -115,7 +115,7 @@ export function postTemplate(postData) {
       const readMore = document.createElement("div");
       readMore.classList.add("mb-4");
       const readMoreLink = document.createElement("a");
-      readMoreLink.classList.add("text-info", "ms-3");
+      readMoreLink.classList.add("text-info");
       readMoreLink.setAttribute("href", `/pages/singlePost.html?id=${id}`);
       readMoreLink.innerHTML = "See more";
 
@@ -126,11 +126,69 @@ export function postTemplate(postData) {
 
   if (path === `/pages/singlePost.html`) {
     const postBody = document.createElement("p");
-    postBody.classList.add("m-3", "mb-4");
+    postBody.classList.add("mb-4");
     postBody.innerHTML = body;
 
     infoHolder.append(postBody);
   }
+
+  const interactions = document.createElement("div");
+  interactions.classList.add("d-flex", "flex-row", "align-items-center", "mb-4")
+
+  const comments = document.createElement("div");
+  comments.classList.add("me-2")
+  const commentsLink = document.createElement("a");
+  commentsLink.classList.add("d-flex", "align-items-center", "p-0", "btn", "text-decoration-none");
+
+  if (path === `/index.html` || path === `/pages/profile.html`) {
+    commentsLink.setAttribute("href", `/pages/singlePost.html?id=${id}`);
+  }
+
+  const commentIcon = document.createElement("img");
+  commentIcon.src = "/assets/icons/chat-dots-fill.png";
+  commentIcon.alt = "Comments";
+  commentIcon.height = "30";
+  commentIcon.width = "32";
+
+  comments.append(commentsLink)
+  commentsLink.append(commentIcon);
+  interactions.append(comments);
+
+  if (_count) {
+    const commentsCount = document.createElement("p");
+    commentsCount.classList.add("m-auto", "ms-1")
+    commentsCount.innerHTML = "(" + _count.comments + ")";
+
+    commentsLink.append(commentsCount);
+  }
+
+  const likes = document.createElement("div");
+  const likesLink = document.createElement("a");
+  likesLink.classList.add("d-flex", "align-items-center", "p-0", "btn", "text-decoration-none");
+
+  if (path === `/index.html` || path === `/pages/profile.html`) {
+    likesLink.setAttribute("href", `/pages/singlePost.html?id=${id}`);
+  }
+
+  const likeIcon = document.createElement("img");
+  likeIcon.src = "/assets/icons/heart.png";
+  likeIcon.alt = "Likes";
+  likeIcon.height = "30";
+  likeIcon.width = "32";
+
+  likes.append(likesLink);
+  likesLink.append(likeIcon);
+  interactions.append(likes);
+
+  if (_count) {
+    const likesCount = document.createElement("p");
+    likesCount.classList.add("m-auto", "ms-1")
+    likesCount.innerHTML = "(" + _count.reactions + ")";
+
+    likesLink.append(likesCount);
+  }
+
+  infoHolder.append(interactions);
 
   if (path === `/pages/profile.html`) {
     const buttons = document.createElement("div");

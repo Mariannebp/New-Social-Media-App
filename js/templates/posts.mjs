@@ -11,6 +11,8 @@ export function postTemplate(postData) {
 
   const path = location.pathname;
 
+  console.log(postData)
+
   if (path === `/pages/singlePost.html`) {
     const headTitle = document.querySelector("title");
 
@@ -74,27 +76,60 @@ export function postTemplate(postData) {
 
   if (media) {
     const img = document.createElement("img");
-    img.classList.add("d-flex", "align-items-center", "m-auto", "mb-3", "w-75")
+    img.classList.add("d-flex", "align-items-center", "m-auto", "mb-3")
+    img.setAttribute("style", "width: 90%");
     img.src = media;
     img.alt = `Image from ${title}`;
-    postContent.append(img)
+    postContent.append(img);
+  } else {
+    const img = document.createElement("img");
+    img.classList.add("d-flex", "align-items-center", "m-auto", "mb-3");
+    img.setAttribute("style", "width: 90%");
+    img.src = "/assets/icons/card-image-2.png";
+    img.alt = `Placeholder for ${title}`;
+    postContent.append(img);
   }
 
-  if (path === `/index.html`) {
-    const readMore = document.createElement("a");
-    readMore.classList.add("d-flex", "justify-content-end", "text-info", "m-3", "me-5");
-    readMore.setAttribute("href", `/pages/singlePost.html?id=${id}`);
-    readMore.innerHTML = "Read more...";
+  const infoHolder = document.createElement("div");
+  infoHolder.classList.add("text-start", "m-3", "m-auto", "w-75")
+  postContent.append(infoHolder);
 
-    postContent.append(readMore)
+  if (path === `/index.html` || path === `/pages/profile.html`) {
+    if (body && body.length) {
+      const postBody = document.createElement("p");
+      const bodyLimited = body.split(' ').slice(0, 15).join(' ');
+      postBody.innerHTML = bodyLimited + "...";
+
+      infoHolder.append(postBody);
+
+      const readMore = document.createElement("div");
+      readMore.classList.add("mb-4");
+      const readMoreLink = document.createElement("a");
+      readMoreLink.classList.add("text-info");
+      readMoreLink.setAttribute("href", `/pages/singlePost.html?id=${id}`);
+      readMoreLink.innerHTML = "See more";
+
+      readMore.append(readMoreLink)
+      postBody.append(readMore)
+    } else {
+      const readMore = document.createElement("div");
+      readMore.classList.add("mb-4");
+      const readMoreLink = document.createElement("a");
+      readMoreLink.classList.add("text-info", "ms-3");
+      readMoreLink.setAttribute("href", `/pages/singlePost.html?id=${id}`);
+      readMoreLink.innerHTML = "See more";
+
+      readMore.append(readMoreLink)
+      infoHolder.append(readMore)
+    }
   }
 
-  if (path === `/pages/profile.html` || path === `/pages/singlePost.html`) {
+  if (path === `/pages/singlePost.html`) {
     const postBody = document.createElement("p");
     postBody.classList.add("m-3", "mb-4");
     postBody.innerHTML = body;
 
-    postContent.append(postBody);
+    infoHolder.append(postBody);
   }
 
   if (path === `/pages/profile.html`) {

@@ -11,8 +11,6 @@ export function postTemplate(postData) {
 
   const path = location.pathname;
 
-  console.log(postData)
-
   if (path === `/pages/singlePost.html`) {
     const headTitle = document.querySelector("title");
 
@@ -84,7 +82,7 @@ export function postTemplate(postData) {
   } else {
     const img = document.createElement("img");
     img.classList.add("d-flex", "align-items-center", "m-auto", "mb-3");
-    img.setAttribute("style", "width: 90%");
+    img.setAttribute("style", "width: 50%");
     img.src = "/assets/icons/card-image-2.png";
     img.alt = `Placeholder for ${title}`;
     postContent.append(img);

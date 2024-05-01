@@ -192,13 +192,25 @@ export function postTemplate(postData) {
     const commentSection = document.createElement("div");
     commentSection.classList.add("m-auto", "mb-3", "w-75", "text-start");
     const commentsAdd = document.createElement("form");
-    commentsAdd.classList.add("mb-3")
+    commentsAdd.classList.add("d-flex", "mb-3")
     const commentInput = document.createElement("input");
     commentInput.classList.add("form-control");
     commentInput.setAttribute("type", "text");
     commentInput.setAttribute("placeholder", "Comment...");
 
     commentsAdd.append(commentInput);
+
+    const commentButton = document.createElement("button");
+    commentButton.classList.add("btn");
+    const commentButtonIcon = document.createElement("img");
+    commentButtonIcon.src = "/assets/icons/chat-dots.png";
+    commentButtonIcon.alt = "Post comment";
+    commentButtonIcon.height = "28";
+    commentButtonIcon.width = "30";
+
+    commentButton.append(commentButtonIcon);
+    commentsAdd.append(commentButton);
+
 
     const commentsTitle = document.createElement("h2");
     commentsTitle.classList.add("h5");

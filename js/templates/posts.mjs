@@ -6,7 +6,7 @@ import { removePost } from "../api/posts/remove.mjs";
  * @param {string} postData that fetches the posts to be displayed.
  */
 export function postTemplate(postData) {
-  const { title, media, body, author, updated, id, _count } = postData;
+  const { title, media, body, author, updated, id, _count, comments, reactions } = postData;
   const { name, avatar } = author;
 
   const path = location.pathname;
@@ -133,8 +133,8 @@ export function postTemplate(postData) {
   const interactions = document.createElement("div");
   interactions.classList.add("d-flex", "flex-row", "align-items-center", "mb-4")
 
-  const comments = document.createElement("div");
-  comments.classList.add("me-2")
+  const commentsCounter = document.createElement("div");
+  commentsCounter.classList.add("me-2")
   const commentsLink = document.createElement("a");
   commentsLink.classList.add("d-flex", "align-items-center", "p-0", "btn", "text-decoration-none");
 
@@ -148,9 +148,9 @@ export function postTemplate(postData) {
   commentIcon.height = "30";
   commentIcon.width = "32";
 
-  comments.append(commentsLink)
+  commentsCounter.append(commentsLink)
   commentsLink.append(commentIcon);
-  interactions.append(comments);
+  interactions.append(commentsCounter);
 
   if (_count) {
     const commentsCount = document.createElement("p");
@@ -187,6 +187,93 @@ export function postTemplate(postData) {
   }
 
   infoHolder.append(interactions);
+
+  if (path === `/pages/singlePost.html`) {
+    const commentSection = document.createElement("div");
+    commentSection.classList.add("m-auto", "mb-3", "w-75", "text-start");
+    const commentsAdd = document.createElement("form");
+    commentsAdd.classList.add("mb-3")
+    const commentInput = document.createElement("input");
+    commentInput.classList.add("form-control");
+    commentInput.setAttribute("type", "text");
+    commentInput.setAttribute("placeholder", "Comment...");
+
+    commentsAdd.append(commentInput);
+
+    const commentsTitle = document.createElement("h2");
+    commentsTitle.classList.add("h5");
+    commentsTitle.innerHTML = "Comments";
+
+    commentSection.append(commentsTitle, commentsAdd);
+
+    if (comments && comments.length) {
+
+      comments.forEach(i => {
+        const commentsEach = document.createElement("div");
+        commentsEach.classList.add("border", "border-dark", "rounded", "mb-2");
+
+        console.log(i.author.avatar);
+
+        if (i.author.avatar && i.author.avatar.length) {
+          const commentAuthor = document.createElement("div");
+          commentAuthor.classList.add("d-flex", "mt-2");
+
+          const commentName = document.createElement("p");
+          commentName.classList.add("ms-2", "mb-1");
+          commentName.innerHTML = i.author.name;
+
+          const userAvatar = document.createElement("img");
+          userAvatar.classList.add("ms-3", "d-flex", "justify-items-start", "rounded-circle")
+          userAvatar.src = i.author.avatar;
+          userAvatar.alt = "Avatar";
+          userAvatar.height = "24";
+          userAvatar.width = "24";
+          userAvatar.style.objectFit = "cover";
+
+          commentAuthor.append(userAvatar, commentName);
+          commentsEach.append(commentAuthor);
+        } else {
+          const commentAuthor = document.createElement("div");
+          commentAuthor.classList.add("d-flex", "mt-3");
+
+          const commentName = document.createElement("p");
+          commentName.classList.add("ms-2", "mb-1");
+          commentName.innerHTML = i.author.name;
+
+          const UserAvatar = document.createElement("img");
+          UserAvatar.src = "/assets/img/avatar-1606939.png";
+          UserAvatar.classList.add("ms-3", "d-flex");
+          UserAvatar.alt = "Avatar";
+          UserAvatar.height = "24";
+
+          commentAuthor.append(UserAvatar, commentName);
+          commentsEach.append(commentAuthor);
+        }
+
+        if (i.body) {
+          const commentContent = document.createElement("p");
+          commentContent.classList.add("ms-3", "text-black", "mb-2")
+          commentContent.innerHTML = i.body;
+
+          commentsEach.append(commentContent);
+        } else {
+          const commentContent = document.createElement("p");
+          commentContent.classList.add("ms-3", "mb-2", "text-dark", "fst-italic")
+          commentContent.innerHTML = "no content";
+
+          commentsEach.append(commentContent);
+        }
+        commentSection.append(commentsEach);
+      })
+    } else {
+      const commentsEmpty = document.createElement("p");
+      commentsEmpty.classList.add("ms-3", "mb-2", "text-dark", "fst-italic");
+      commentsEmpty.innerHTML = "No comments yet..";
+
+      commentSection.append(commentsEmpty);
+    }
+    postContent.append(commentSection)
+  }
 
   if (path === `/pages/profile.html`) {
     const buttons = document.createElement("div");

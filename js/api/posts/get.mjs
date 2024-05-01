@@ -7,6 +7,8 @@ const profile = "/profiles/";
 const user = load("profile");
 
 const author = "?_author=true";
+const comments = "&_comments=true";
+const reactions = "&_reactions=true";
 
 /**
  * function that call for default number of posts from the API
@@ -38,7 +40,7 @@ export async function getPost(id) {
     throw new Error("A postId is required");
   }
 
-  const getPostUrl = `${socialBaseUrl}${action}/${id}${author}`;
+  const getPostUrl = `${socialBaseUrl}${action}/${id}${author}${comments}${reactions}`;
 
   const response = await authFetch(getPostUrl);
 

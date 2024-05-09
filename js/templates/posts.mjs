@@ -166,10 +166,13 @@ export function postTemplate(postData) {
     const commentSection = document.createElement("div");
     commentSection.classList.add("m-auto", "mb-3", "w-75", "text-start");
     const commentsAdd = document.createElement("form");
-    commentsAdd.classList.add("d-flex", "mb-3")
+    commentsAdd.classList.add("d-flex", "mb-3");
+    commentsAdd.setAttribute("id", "addNewComment")
     const commentInput = document.createElement("input");
     commentInput.classList.add("form-control");
+    commentInput.setAttribute("id", "newComment");
     commentInput.setAttribute("type", "text");
+    commentInput.setAttribute("maxLength", 280);
     commentInput.setAttribute("placeholder", "Comment...");
 
     commentsAdd.append(commentInput);
@@ -196,8 +199,6 @@ export function postTemplate(postData) {
       comments.forEach(i => {
         const commentsEach = document.createElement("div");
         commentsEach.classList.add("border", "border-dark", "rounded", "mb-2");
-
-        console.log(i.author.avatar);
 
         if (i.author.avatar && i.author.avatar.length) {
           const commentAuthor = document.createElement("div");

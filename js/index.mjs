@@ -28,6 +28,7 @@ if (path === `/pages/login.html`) {
   handler.setLogoutListener();
 } else if (path === `/pages/singlePost.html`) {
   profile.checkIfLoggedIn();
-  posts.getPostSingle();
+  await posts.getPostSingle();
+  handler.setCreateNewCommentListener();
   handler.setLogoutListener();
 } 

@@ -61,7 +61,7 @@ export function postTemplate(postData) {
     }
   }
 
-  const date = new Date(updated).toLocaleDateString();
+  const date = new Date(updated).toLocaleDateString("en-GB", { day: 'numeric', month: 'long', year: 'numeric' });
   const postDate = document.createElement("p")
   postDate.classList.add("text-end", "me-5", "mt-3")
   postDate.innerHTML = date;
@@ -165,6 +165,11 @@ export function postTemplate(postData) {
   if (path === `/pages/singlePost.html`) {
     const commentSection = document.createElement("div");
     commentSection.classList.add("m-auto", "mb-3", "w-75", "text-start");
+
+    const commentsTitle = document.createElement("h2");
+    commentsTitle.classList.add("h5");
+    commentsTitle.innerHTML = "Comments";
+
     const commentsAdd = document.createElement("form");
     commentsAdd.classList.add("d-flex", "mb-3");
     commentsAdd.setAttribute("id", "addNewComment")
@@ -187,10 +192,6 @@ export function postTemplate(postData) {
 
     commentButton.append(commentButtonIcon);
     commentsAdd.append(commentButton);
-
-    const commentsTitle = document.createElement("h2");
-    commentsTitle.classList.add("h5");
-    commentsTitle.innerHTML = "Comments";
 
     commentSection.append(commentsTitle, commentsAdd);
 
@@ -238,17 +239,52 @@ export function postTemplate(postData) {
 
         if (i.body) {
           const commentContent = document.createElement("p");
-          commentContent.classList.add("ms-3", "text-black", "mb-2")
+          commentContent.classList.add("ms-3", "text-black", "mb-1", "text-break");
           commentContent.innerHTML = i.body;
 
           commentsEach.append(commentContent);
         } else {
           const commentContent = document.createElement("p");
-          commentContent.classList.add("ms-3", "mb-2", "text-dark", "fst-italic")
+          commentContent.classList.add("ms-3", "mb-1", "text-dark", "fst-italic");
           commentContent.innerHTML = "no content";
 
           commentsEach.append(commentContent);
         }
+
+        function timeElapsed(currentTime, createdTime) {
+          const minutes = 60 * 1000;
+          const hours = minutes * 60;
+          const days = hours * 24;
+          const maxCountTime = days * 8;
+
+          const elapsedTime = currentTime - createdTime;
+
+          if (elapsedTime < minutes) {
+            return Math.round(elapsed / 1000) + ' seconds ago';
+          }
+          else if (elapsedTime < hours) {
+            return Math.round(elapsedTime / minutes) + ' minutes ago';
+          }
+          else if (elapsedTime < days) {
+            return Math.round(elapsedTime / hours) + ' hours ago';
+          }
+          else if (elapsedTime < maxCountTime) {
+            return Math.round(elapsedTime / days) + ' days ago';
+          }
+          else if (elapsedTime >= maxCountTime) {
+            return new Date(i.created).toLocaleDateString("en-GB", { day: 'numeric', month: 'long', year: 'numeric' });
+          }
+        }
+
+        const time = new Date(i.created).getTime();
+        const timeAgo = timeElapsed(new Date(), time);
+
+        const timeCount = document.createElement("p");
+        timeCount.classList.add("me-3", "mb-1", "text-dark", "text-end");
+        timeCount.innerHTML = timeAgo;
+
+        commentsEach.append(timeCount)
+
         commentSection.append(commentsEach);
       })
     } else {

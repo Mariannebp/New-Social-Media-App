@@ -8,7 +8,6 @@ const user = load("profile");
 
 const author = "?_author=true";
 const comments = "&_comments=true";
-const reactions = "&_reactions=true";
 
 /**
  * function that call for default number of posts from the API

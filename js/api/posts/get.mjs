@@ -40,7 +40,7 @@ export async function getPost(id) {
     throw new Error("A postId is required");
   }
 
-  const getPostUrl = `${socialBaseUrl}${action}/${id}${author}${comments}${reactions}`;
+  const getPostUrl = `${socialBaseUrl}${action}/${id}${author}${comments}`;
 
   const response = await authFetch(getPostUrl);
 

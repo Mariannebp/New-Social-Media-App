@@ -6,7 +6,7 @@ import { removePost } from "../api/posts/remove.mjs";
  * @param {string} postData that fetches the posts to be displayed.
  */
 export function postTemplate(postData) {
-  const { title, media, body, author, updated, id, _count, comments, reactions } = postData;
+  const { title, media, body, author, updated, id, _count, comments } = postData;
   const { name, avatar } = author;
 
   const path = location.pathname;
@@ -160,32 +160,6 @@ export function postTemplate(postData) {
     commentsLink.append(commentsCount);
   }
 
-  const likes = document.createElement("div");
-  const likesLink = document.createElement("a");
-  likesLink.classList.add("d-flex", "align-items-center", "p-0", "btn", "text-decoration-none");
-
-  if (path === `/index.html` || path === `/pages/profile.html`) {
-    likesLink.setAttribute("href", `/pages/singlePost.html?id=${id}`);
-  }
-
-  const likeIcon = document.createElement("img");
-  likeIcon.src = "/assets/icons/heart.png";
-  likeIcon.alt = "Likes";
-  likeIcon.height = "30";
-  likeIcon.width = "32";
-
-  likes.append(likesLink);
-  likesLink.append(likeIcon);
-  interactions.append(likes);
-
-  if (_count) {
-    const likesCount = document.createElement("p");
-    likesCount.classList.add("m-auto", "ms-1")
-    likesCount.innerHTML = "(" + _count.reactions + ")";
-
-    likesLink.append(likesCount);
-  }
-
   infoHolder.append(interactions);
 
   if (path === `/pages/singlePost.html`) {
@@ -210,7 +184,6 @@ export function postTemplate(postData) {
 
     commentButton.append(commentButtonIcon);
     commentsAdd.append(commentButton);
-
 
     const commentsTitle = document.createElement("h2");
     commentsTitle.classList.add("h5");

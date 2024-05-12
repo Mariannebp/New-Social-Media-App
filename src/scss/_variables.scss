@@ -5,6 +5,7 @@ $redwine: #830A48;
 $blue: #4A6FA5;
 $gray-light: #F5F5F5;
 $gray-medium: #b9b9b9;
+$gray-dark: #8F8F8F;
 $white: #fefefe;
 
 
@@ -15,6 +16,7 @@ $buttonmain: $redwine;
 $info: $redwine;
 $gray: $gray-light;
 $medium: $gray-medium;
+$dark: $gray-dark;
 $buttonedit: $blue;
 $buttondelete: $gray-medium;
 
@@ -27,8 +29,13 @@ $theme-colors: (
   "headerbg": $headerbg,
   "gray": $gray,
   "medium": $medium,
+  "dark": $dark,
   "buttonedit": $buttonedit,
   "buttondelete": $buttondelete
 );
 
 $headings-color: $blue;
+
+.svg-placeholder {
+  fill: blue;
+}

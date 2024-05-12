@@ -48,15 +48,16 @@ export async function getPost(id) {
 }
 
 /**
- * function that call for the user profile
- * @param {string} name the name of the profile called
+ * function that call for the user profile being targeted
  */
-export async function getProfile(name) {
+export async function getProfile() {
+  const queryString = document.location.search;
+  const params = new URLSearchParams(queryString);
+  const name = params.get("name");
+
   const addOns = "?_followers=true&_following=true&_posts=true"
   const getProfileUrl = `${socialBaseUrl}${actionProfiles}${name}${addOns}`;
   const response = await authFetch(getProfileUrl);
-
-  console.log(getProfileUrl)
 
   return await response.json();
 }

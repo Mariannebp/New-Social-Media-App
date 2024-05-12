@@ -4,9 +4,10 @@ import { load } from "../../storage/index.mjs";
  * Sets profile avatar in header if user have registered one
  */
 export function setAvatarHeader() {
-  const header = document.querySelector("#headerAvatar");
   const profile = load("profile");
   const { avatar, name } = profile;
+  const header = document.querySelector("#headerAvatar");
+  header.setAttribute("href", `/pages/profile.html?name=${name}`)
   const avatarHolder = "../../../assets/img/avatar-1606939.png";
 
   if (avatar) {

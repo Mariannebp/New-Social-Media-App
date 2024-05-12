@@ -29,14 +29,18 @@ export function postTemplate(postData) {
   post.append(postContent)
 
   if (path === `/index.html` || path === `/pages/singlePost.html`) {
+    const userLink = document.createElement("a");
+    userLink.classList.add("btn", "p-0");
+    userLink.setAttribute("href", `/pages/profile.html?name=${name}`);
+  
+    const user = document.createElement("div");
+    user.classList.add("d-flex", "mt-3");
+  
+    const postAuthor = document.createElement("p");
+    postAuthor.classList.add("ms-3", "mb-4");
+    postAuthor.innerHTML = name;
+
     if (avatar) {
-      const user = document.createElement("div");
-      user.classList.add("d-flex", "mt-3");
-
-      const postAuthor = document.createElement("p");
-      postAuthor.classList.add("ms-3", "mb-4");
-      postAuthor.innerHTML = name;
-
       const userAvatar = document.createElement("img");
       userAvatar.classList.add("ms-3", "d-flex", "justify-items-start", "rounded-circle")
       userAvatar.src = avatar;
@@ -45,23 +49,16 @@ export function postTemplate(postData) {
       userAvatar.width = "36";
       userAvatar.style.objectFit = "cover";
       user.append(userAvatar, postAuthor)
-      postContent.append(user)
     } else {
-      const user = document.createElement("div");
-      user.classList.add("d-flex", "mt-3");
-
-      const postAuthor = document.createElement("p");
-      postAuthor.classList.add("ms-3", "mb-4");
-      postAuthor.innerHTML = name;
-
       const UserAvatar = document.createElement("img");
       UserAvatar.src = "/assets/img/avatar-1606939.png";
       UserAvatar.classList.add("ms-3", "d-flex");
       UserAvatar.alt = "Avatar";
       UserAvatar.height = "36";
       user.append(UserAvatar, postAuthor)
-      postContent.append(user)
     }
+    userLink.append(user)
+    postContent.append(userLink)
   }
 
   const date = new Date(updated).toLocaleDateString("en-GB", { day: 'numeric', month: 'long', year: 'numeric' });

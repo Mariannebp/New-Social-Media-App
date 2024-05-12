@@ -10,9 +10,8 @@ if (path === `/pages/login.html`) {
   handler.setRegisterUserFormListener();
 } else if (path === `/pages/profile.html`) {
   profile.checkIfLoggedIn();
-  profile.getProfile();
+  profile.viewProfile();
   handler.setCreateNewPostListener();
-  posts.getPostFeedUser();
   handler.setLogoutListener();
 } else if (path === `/pages/editPost.html`) {
   profile.checkIfLoggedIn();

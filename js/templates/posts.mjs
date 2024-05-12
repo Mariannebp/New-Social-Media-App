@@ -322,7 +322,7 @@ export function postTemplate(postData) {
     postContent.append(commentSection)
   }
 
-  if (path === `/pages/profile.html`) {
+  if (path === `/pages/profile.html` && profile === name) {
     const buttons = document.createElement("div");
     buttons.classList.add("d-flex", "justify-content-end", "align-items-center", "m-3");
     const editButton = document.createElement("button");

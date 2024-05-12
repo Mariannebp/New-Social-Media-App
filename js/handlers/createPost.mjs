@@ -18,12 +18,12 @@ export function setCreateNewPostListener() {
       const media = newMedia.value;
 
       await createPost({
-          title: title,
-          body: text,
-          media: media,
-        })
+        title: title,
+        body: text,
+        media: media,
+      })
       form.reset();
-      location.reload(); 
+      location.reload();
     })
   }
 }

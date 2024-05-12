@@ -1,4 +1,5 @@
-import { removePost } from "../api/posts/remove.mjs";
+import { removeComment, removePost } from "../api/posts/remove.mjs";
+import { load } from "../storage/index.mjs";
 
 
 /**
@@ -8,6 +9,8 @@ import { removePost } from "../api/posts/remove.mjs";
 export function postTemplate(postData) {
   const { title, media, body, author, updated, id, _count, comments } = postData;
   const { name, avatar } = author;
+  const userInfo = load("profile");
+  const profile = userInfo.name;
 
   const path = location.pathname;
 
@@ -63,7 +66,7 @@ export function postTemplate(postData) {
 
   const date = new Date(updated).toLocaleDateString("en-GB", { day: 'numeric', month: 'long', year: 'numeric' });
   const postDate = document.createElement("p")
-  postDate.classList.add("text-end", "me-5", "mt-3")
+  postDate.classList.add("text-end", "me-5", "mt-0")
   postDate.innerHTML = date;
 
   const postTitle = document.createElement("h4");
@@ -201,6 +204,9 @@ export function postTemplate(postData) {
         const commentsEach = document.createElement("div");
         commentsEach.classList.add("border", "border-dark", "rounded", "mb-2");
 
+        const commentsInfo = document.createElement("div");
+        commentsInfo.classList.add("d-flex", "justify-content-between", "me-2");
+
         if (i.author.avatar && i.author.avatar.length) {
           const commentAuthor = document.createElement("div");
           commentAuthor.classList.add("d-flex", "mt-2");
@@ -218,10 +224,10 @@ export function postTemplate(postData) {
           userAvatar.style.objectFit = "cover";
 
           commentAuthor.append(userAvatar, commentName);
-          commentsEach.append(commentAuthor);
+          commentsInfo.append(commentAuthor);
         } else {
           const commentAuthor = document.createElement("div");
-          commentAuthor.classList.add("d-flex", "mt-3");
+          commentAuthor.classList.add("d-flex");
 
           const commentName = document.createElement("p");
           commentName.classList.add("ms-2", "mb-1");
@@ -234,8 +240,27 @@ export function postTemplate(postData) {
           UserAvatar.height = "24";
 
           commentAuthor.append(UserAvatar, commentName);
-          commentsEach.append(commentAuthor);
+          commentsInfo.append(commentAuthor);
         }
+
+        if (i.author.name === profile) {
+          const deleteCommentButton = document.createElement("button");
+          deleteCommentButton.classList.add("btn", "p-0");
+          const deleteIcon = document.createElement("img");
+          deleteIcon.src = "/assets/icons/trash3-fill_edt.png";
+          deleteIcon.alt = "Delete comment";
+          deleteIcon.height = "18";
+          deleteCommentButton.append(deleteIcon);
+
+          deleteCommentButton.addEventListener("click", async () => {
+            await removeComment(id, i.id);
+            location.reload();
+          })
+
+          commentsInfo.append(deleteCommentButton);
+        }
+
+        commentsEach.append(commentsInfo);
 
         if (i.body) {
           const commentContent = document.createElement("p");
@@ -260,7 +285,7 @@ export function postTemplate(postData) {
           const elapsedTime = currentTime - createdTime;
 
           if (elapsedTime < minutes) {
-            return Math.round(elapsed / 1000) + ' seconds ago';
+            return Math.round(elapsedTime / 1000) + ' seconds ago';
           }
           else if (elapsedTime < hours) {
             return Math.round(elapsedTime / minutes) + ' minutes ago';

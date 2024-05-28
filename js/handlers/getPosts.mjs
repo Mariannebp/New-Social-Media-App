@@ -31,8 +31,8 @@ export async function getPostFeedFiltered() {
 /**
  * Function that will get the posts for the profile page. This uses the getPostsMany-function to be able to render more of the users post.
  */
-export async function getPostFeedUser() {
-  const posts = await post.getPostsProfile();
+export async function getPostFeedUser(name) {
+  const posts = await post.getPostsProfile(name);
   const container = document.querySelector("#usersPosts");
   renderPostsUser(posts, container)
 }

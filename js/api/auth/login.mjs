@@ -11,7 +11,7 @@ const method = "post"
 export async function login(profile) {
   const loginUrl = socialBaseUrl + action;
   const body = JSON.stringify(profile);
-  
+
   const response = await fetch(loginUrl, {
     headers: {
       "Content-Type": "application/json"
@@ -21,12 +21,11 @@ export async function login(profile) {
   })
 
   const { accessToken, ...user } = await response.json()
-  
-  storage.save("token", accessToken)
-  storage.save("profile", user)
-  
+
   if (response.ok) {
     alert("You logged in!");
+    storage.save("token", accessToken)
+    storage.save("profile", user)
     location.href = "profile.html";
   } else {
     alert("Something went wrong, please try again")

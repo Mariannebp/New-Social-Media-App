@@ -30,14 +30,14 @@ export function postTemplate(postData) {
 
   if (path === `/index.html` || path === `/pages/singlePost.html`) {
     const userLink = document.createElement("a");
-    userLink.classList.add("btn", "p-0");
+    userLink.classList.add("btn", "p-0", "d-flex");
     userLink.setAttribute("href", `/pages/profile.html?name=${name}`);
-  
+
     const user = document.createElement("div");
-    user.classList.add("d-flex", "mt-3");
-  
+    user.classList.add("d-flex", "mt-3", "align-items-center");
+
     const postAuthor = document.createElement("p");
-    postAuthor.classList.add("ms-3", "mb-4");
+    postAuthor.classList.add("ms-3", "mb-0");
     postAuthor.innerHTML = name;
 
     if (avatar) {
@@ -48,23 +48,28 @@ export function postTemplate(postData) {
       userAvatar.height = "36";
       userAvatar.width = "36";
       userAvatar.style.objectFit = "cover";
-      user.append(userAvatar, postAuthor)
+      user.append(userAvatar, postAuthor);
     } else {
       const UserAvatar = document.createElement("img");
       UserAvatar.src = "/assets/img/avatar-1606939.png";
       UserAvatar.classList.add("ms-3", "d-flex");
       UserAvatar.alt = "Avatar";
       UserAvatar.height = "36";
-      user.append(UserAvatar, postAuthor)
+      user.append(UserAvatar, postAuthor);
     }
-    userLink.append(user)
-    postContent.append(userLink)
+    userLink.append(user);
+    postContent.append(userLink);
   }
 
   const date = new Date(updated).toLocaleDateString("en-GB", { day: 'numeric', month: 'long', year: 'numeric' });
-  const postDate = document.createElement("p")
-  postDate.classList.add("text-end", "me-5", "mt-0")
+  const postDate = document.createElement("p");
+  postDate.classList.add("text-end", "me-4", "mt-0");
+  postDate.setAttribute("style", "font-size: 0.9rem");
   postDate.innerHTML = date;
+
+  if (path === `/pages/profile.html`) {
+    postDate.classList.add("mt-3");
+  }
 
   const postTitle = document.createElement("h4");
   postTitle.classList.add("font-monospace", "m-3", "text-center", "text-break");
@@ -203,6 +208,9 @@ export function postTemplate(postData) {
 
         const commentsInfo = document.createElement("div");
         commentsInfo.classList.add("d-flex", "justify-content-between", "me-2");
+        const commentsInfoLink = document.createElement("a");
+        commentsInfoLink.classList.add("btn", "p-0");
+        commentsInfoLink.setAttribute("href", `/pages/profile.html?name=${i.author.name}`);
 
         if (i.author.avatar && i.author.avatar.length) {
           const commentAuthor = document.createElement("div");
@@ -221,7 +229,8 @@ export function postTemplate(postData) {
           userAvatar.style.objectFit = "cover";
 
           commentAuthor.append(userAvatar, commentName);
-          commentsInfo.append(commentAuthor);
+          commentsInfoLink.append(commentAuthor);
+          commentsInfo.append(commentsInfoLink);
         } else {
           const commentAuthor = document.createElement("div");
           commentAuthor.classList.add("d-flex");
@@ -237,7 +246,8 @@ export function postTemplate(postData) {
           UserAvatar.height = "24";
 
           commentAuthor.append(UserAvatar, commentName);
-          commentsInfo.append(commentAuthor);
+          commentsInfoLink.append(commentAuthor);
+          commentsInfo.append(commentsInfoLink);
         }
 
         if (i.author.name === profile) {
@@ -303,6 +313,7 @@ export function postTemplate(postData) {
 
         const timeCount = document.createElement("p");
         timeCount.classList.add("me-3", "mb-1", "text-dark", "text-end");
+        timeCount.setAttribute("style", "font-size: 0.9rem");
         timeCount.innerHTML = timeAgo;
 
         commentsEach.append(timeCount)

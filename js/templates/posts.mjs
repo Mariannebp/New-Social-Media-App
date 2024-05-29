@@ -1,7 +1,6 @@
 import { removeComment, removePost } from "../api/posts/remove.mjs";
 import { load } from "../storage/index.mjs";
 
-
 /**
  * Sets the template to display each post fetched with variations according to which page they are to be displayed on.
  * @param {string} postData that fetches the posts to be displayed.
@@ -25,7 +24,7 @@ export function postTemplate(postData) {
   post.setAttribute("style", "max-width: 900px");
 
   const postContent = document.createElement("div");
-  postContent.classList.add("border", "border-info")
+  postContent.classList.add("border", "border-info", "pb-3")
   post.append(postContent)
 
   if (path === `/index.html` || path === `/pages/singlePost.html`) {
@@ -136,7 +135,7 @@ export function postTemplate(postData) {
   }
 
   const interactions = document.createElement("div");
-  interactions.classList.add("d-flex", "flex-row", "align-items-center", "mb-4")
+  interactions.classList.add("d-flex", "flex-row", "align-items-center")
 
   const commentsCounter = document.createElement("div");
   commentsCounter.classList.add("me-2")
@@ -332,15 +331,23 @@ export function postTemplate(postData) {
 
   if (path === `/pages/profile.html` && profile === name) {
     const buttons = document.createElement("div");
-    buttons.classList.add("d-flex", "justify-content-end", "align-items-center", "m-3");
+    buttons.classList.add("d-flex", "justify-content-end", "align-items-center", "me-3");
     const editButton = document.createElement("button");
-    editButton.classList.add("btn", "btn-buttonedit", "me-3");
+    editButton.classList.add("btn", "p-1", "me-2");
     editButton.setAttribute("id", "editButton");
-    editButton.innerHTML = "Edit";
+    const editButtonIcon = document.createElement("img");
+    editButtonIcon.src = "/assets/icons/pencil-fill.png";
+    editButtonIcon.width = "24";
+    editButton.append(editButtonIcon);
+
     const deleteButton = document.createElement("button");
-    deleteButton.classList.add("btn", "btn-buttondelete", "me-3");
+    deleteButton.classList.add("btn", "p-1");
     deleteButton.setAttribute("id", "deleteButton");
-    deleteButton.innerHTML = "Delete";
+    const deleteButtonIcon = document.createElement("img");
+    deleteButtonIcon.src = "/assets/icons/trash3-fill_edt.png";
+    deleteButtonIcon.width = "24";
+    deleteButton.append(deleteButtonIcon);
+
     buttons.append(editButton, deleteButton);
 
     editButton.addEventListener("click", () => location.href = `editPost.html?id=${id}`)

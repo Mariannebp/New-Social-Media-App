@@ -11,6 +11,7 @@ if (path === `/pages/login.html`) {
 } else if (path === `/pages/profile.html`) {
   profile.checkIfLoggedIn();
   profile.viewProfile();
+  handler.setTogglePostFormListener();
   handler.setCreateNewPostListener();
   handler.setLogoutListener();
 } else if (path === `/pages/editPost.html`) {

@@ -16,13 +16,13 @@ export async function setUpdatePostListener() {
 
     const post = await getPost(id);
     const { title, body, media } = post;
-    
+
     form.title.value = title;
     form.body.value = body;
     form.media.value = media;
 
-    button.disabled = false;   
-    
+    button.disabled = false;
+
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
@@ -33,7 +33,7 @@ export async function setUpdatePostListener() {
 
       await updatePost(post);
       form.reset();
-      location.href = `/pages/profile.html`; 
+      window.history.back();
     })
   }
 }

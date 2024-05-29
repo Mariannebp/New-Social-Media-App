@@ -13,6 +13,7 @@ export async function viewProfile() {
   const userPostCount = document.querySelector("#postCount");
   const userFollowersCount = document.querySelector("#followersCount");
   const userFollowingCount = document.querySelector("#followingCount");
+  const followButtonContainer = document.querySelector("#followButtonContainer");
   const followButton = document.querySelector("#followButton");
 
   const profileData = await getProfile();
@@ -39,24 +40,33 @@ export async function viewProfile() {
   }
 
   const user = load("profile");
-  const checkFollow = followers.find((n) => n.name === user.name);
-  if (checkFollow) {
-    followButton.innerHTML = "Following";
+
+  if (user.name === name) {
+    followButtonContainer.classList.add("visually-hidden");
   } else {
-    followButton.innerHTML = "Follow +";
+    const checkFollow = followers.find((n) => n.name === user.name);
+    if (checkFollow) {
+      followButton.innerHTML = "Following";
+    } else {
+      followButton.innerHTML = "Follow +";
+    }
+
+    followButton.addEventListener("click", async () => {
+      if (checkFollow) {
+        await unFollow(name);
+        followButton.innerHTML = "Follow +";
+        location.reload();
+      } else {
+        await follow(name);
+        followButton.innerHTML = "Following";
+        location.reload();
+      }
+    })
   }
 
-  followButton.addEventListener("click", async () => {
-    if (checkFollow) {
-      await unFollow(name);
-      followButton.innerHTML = "Follow +";
-      location.reload();
-    } else {
-      await follow(name);
-      followButton.innerHTML = "Following";
-      location.reload();
-    }
-  })
+
+
+
 
   getPostFeedUser(name);
 }

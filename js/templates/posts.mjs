@@ -33,7 +33,7 @@ export function postTemplate(postData) {
     userLink.setAttribute("href", `/pages/profile.html?name=${name}`);
 
     const user = document.createElement("div");
-    user.classList.add("d-flex", "mt-3", "align-items-center");
+    user.classList.add("d-flex", "mt-3", "me-3", "align-items-center");
 
     const postAuthor = document.createElement("p");
     postAuthor.classList.add("ms-3", "mb-0");
@@ -71,7 +71,7 @@ export function postTemplate(postData) {
   }
 
   const postTitle = document.createElement("h4");
-  postTitle.classList.add("font-monospace", "m-3", "text-center", "text-break");
+  postTitle.classList.add("font-monospace", "m-3", "text-center");
   postTitle.innerHTML = title;
 
   postContent.append(postDate, postTitle)
@@ -128,14 +128,14 @@ export function postTemplate(postData) {
 
   if (path === `/pages/singlePost.html`) {
     const postBody = document.createElement("p");
-    postBody.classList.add("mb-4");
+    postBody.classList.add("mb-3");
     postBody.innerHTML = body;
 
     infoHolder.append(postBody);
   }
 
   const interactions = document.createElement("div");
-  interactions.classList.add("d-flex", "flex-row", "align-items-center")
+  interactions.classList.add("d-flex", "flex-row", "align-items-center", "mb-3")
 
   const commentsCounter = document.createElement("div");
   commentsCounter.classList.add("me-2")
@@ -270,13 +270,13 @@ export function postTemplate(postData) {
 
         if (i.body) {
           const commentContent = document.createElement("p");
-          commentContent.classList.add("ms-3", "text-black", "mb-1", "text-break");
+          commentContent.classList.add("mx-3", "text-black", "mb-1");
           commentContent.innerHTML = i.body;
 
           commentsEach.append(commentContent);
         } else {
           const commentContent = document.createElement("p");
-          commentContent.classList.add("ms-3", "mb-1", "text-dark", "fst-italic");
+          commentContent.classList.add("mx-3", "mb-1", "text-dark", "fst-italic");
           commentContent.innerHTML = "no content";
 
           commentsEach.append(commentContent);

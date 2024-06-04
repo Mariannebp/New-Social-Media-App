@@ -16,7 +16,7 @@ export function postTemplate(postData) {
   if (path === `/pages/singlePost.html`) {
     const headTitle = document.querySelector("title");
 
-    headTitle.innerHTML = title;
+    headTitle.innerHTML = "The Place | " + title;
   }
 
   const post = document.createElement("div");

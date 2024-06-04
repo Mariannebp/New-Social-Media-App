@@ -19,6 +19,9 @@ export async function viewProfile() {
   const profileData = await getProfile();
   const { name, email, _count, avatar, followers } = profileData;
 
+  const headTitle = document.querySelector("title");
+  headTitle.innerHTML = "The Place | " + name;
+
   userName.innerHTML = name;
   userEmail.innerHTML = email;
   userPostCount.innerHTML = _count.posts;

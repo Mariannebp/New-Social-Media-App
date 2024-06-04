@@ -15,6 +15,7 @@ export async function viewProfile() {
   const userFollowingCount = document.querySelector("#followingCount");
   const followButtonContainer = document.querySelector("#followButtonContainer");
   const followButton = document.querySelector("#followButton");
+  const newPostProfile = document.querySelector("#newPostProfile");
 
   const profileData = await getProfile();
   const { name, email, _count, avatar, followers } = profileData;
@@ -45,7 +46,8 @@ export async function viewProfile() {
   const user = load("profile");
 
   if (user.name === name) {
-    followButtonContainer.classList.add("visually-hidden");
+    followButtonContainer.classList.add("d-none");
+    newPostProfile.classList.remove("d-none");
   } else {
     const checkFollow = followers.find((n) => n.name === user.name);
     if (checkFollow) {
@@ -66,10 +68,6 @@ export async function viewProfile() {
       }
     })
   }
-
-
-
-
 
   getPostFeedUser(name);
 }

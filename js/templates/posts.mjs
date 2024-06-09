@@ -206,7 +206,7 @@ export function postTemplate(postData) {
         commentsEach.classList.add("border", "border-dark", "rounded", "mb-2");
 
         const commentsInfo = document.createElement("div");
-        commentsInfo.classList.add("d-flex", "justify-content-between", "me-2");
+        commentsInfo.classList.add("d-flex", "justify-content-between", "me-2", "mt-2");
         const commentsInfoLink = document.createElement("a");
         commentsInfoLink.classList.add("btn", "p-0");
         commentsInfoLink.setAttribute("href", `/pages/profile.html?name=${i.author.name}`);

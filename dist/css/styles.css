@@ -36,7 +36,7 @@ header a.dropdown-item {
   --bs-orange: #fd7e14;
   --bs-yellow: #ffc107;
   --bs-green: #198754;
-  --bs-teal: #20c997;
+  --bs-teal: #1D828C;
   --bs-cyan: #0dcaf0;
   --bs-black: #000;
   --bs-white: #fefefe;
@@ -53,7 +53,7 @@ header a.dropdown-item {
   --bs-gray-900: #212529;
   --bs-primary: #F2A1C7;
   --bs-secondary: #4A6FA5;
-  --bs-buttonmain: #830A48;
+  --bs-buttonmain: #1D828C;
   --bs-info: #830A48;
   --bs-headerbg: #F2A1C7;
   --bs-gray: #F5F5F5;
@@ -63,7 +63,7 @@ header a.dropdown-item {
   --bs-buttondelete: #b9b9b9;
   --bs-primary-rgb: 242, 161, 199;
   --bs-secondary-rgb: 74, 111, 165;
-  --bs-buttonmain-rgb: 131, 10, 72;
+  --bs-buttonmain-rgb: 29, 130, 140;
   --bs-info-rgb: 131, 10, 72;
   --bs-headerbg-rgb: 242, 161, 199;
   --bs-gray-rgb: 245, 245, 245;
@@ -2859,19 +2859,19 @@ textarea.form-control-lg {
 
 .btn-buttonmain {
   --bs-btn-color: #fefefe;
-  --bs-btn-bg: #830A48;
-  --bs-btn-border-color: #830A48;
+  --bs-btn-bg: #1D828C;
+  --bs-btn-border-color: #1D828C;
   --bs-btn-hover-color: #fefefe;
-  --bs-btn-hover-bg: #6f093d;
-  --bs-btn-hover-border-color: #69083a;
-  --bs-btn-focus-shadow-rgb: 149, 47, 99;
+  --bs-btn-hover-bg: #196f77;
+  --bs-btn-hover-border-color: #176870;
+  --bs-btn-focus-shadow-rgb: 63, 149, 157;
   --bs-btn-active-color: #fefefe;
-  --bs-btn-active-bg: #69083a;
-  --bs-btn-active-border-color: #620836;
+  --bs-btn-active-bg: #176870;
+  --bs-btn-active-border-color: #166269;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #fefefe;
-  --bs-btn-disabled-bg: #830A48;
-  --bs-btn-disabled-border-color: #830A48;
+  --bs-btn-disabled-bg: #1D828C;
+  --bs-btn-disabled-border-color: #1D828C;
 }
 
 .btn-info {
@@ -3028,19 +3028,19 @@ textarea.form-control-lg {
 }
 
 .btn-outline-buttonmain {
-  --bs-btn-color: #830A48;
-  --bs-btn-border-color: #830A48;
+  --bs-btn-color: #1D828C;
+  --bs-btn-border-color: #1D828C;
   --bs-btn-hover-color: #fefefe;
-  --bs-btn-hover-bg: #830A48;
-  --bs-btn-hover-border-color: #830A48;
-  --bs-btn-focus-shadow-rgb: 131, 10, 72;
+  --bs-btn-hover-bg: #1D828C;
+  --bs-btn-hover-border-color: #1D828C;
+  --bs-btn-focus-shadow-rgb: 29, 130, 140;
   --bs-btn-active-color: #fefefe;
-  --bs-btn-active-bg: #830A48;
-  --bs-btn-active-border-color: #830A48;
+  --bs-btn-active-bg: #1D828C;
+  --bs-btn-active-border-color: #1D828C;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #830A48;
+  --bs-btn-disabled-color: #1D828C;
   --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: #830A48;
+  --bs-btn-disabled-border-color: #1D828C;
   --bs-gradient: none;
 }
 
@@ -4722,12 +4722,12 @@ textarea.form-control-lg {
 }
 
 .alert-buttonmain {
-  --bs-alert-color: #4f062b;
-  --bs-alert-bg: #e6ceda;
-  --bs-alert-border-color: #dab6c8;
+  --bs-alert-color: #114e54;
+  --bs-alert-bg: #d2e6e8;
+  --bs-alert-border-color: #bbdadd;
 }
 .alert-buttonmain .alert-link {
-  color: #3f0522;
+  color: #0e3e43;
 }
 
 .alert-info {
@@ -5114,17 +5114,17 @@ textarea.form-control-lg {
 }
 
 .list-group-item-buttonmain {
-  color: #4f062b;
-  background-color: #e6ceda;
+  color: #114e54;
+  background-color: #d2e6e8;
 }
 .list-group-item-buttonmain.list-group-item-action:hover, .list-group-item-buttonmain.list-group-item-action:focus {
-  color: #4f062b;
-  background-color: #cfb9c4;
+  color: #114e54;
+  background-color: #bdcfd1;
 }
 .list-group-item-buttonmain.list-group-item-action.active {
   color: #fefefe;
-  background-color: #4f062b;
-  border-color: #4f062b;
+  background-color: #114e54;
+  border-color: #114e54;
 }
 
 .list-group-item-info {
@@ -6704,7 +6704,7 @@ textarea.form-control-lg {
 
 .text-bg-buttonmain {
   color: #fefefe !important;
-  background-color: RGBA(131, 10, 72, var(--bs-bg-opacity, 1)) !important;
+  background-color: RGBA(29, 130, 140, var(--bs-bg-opacity, 1)) !important;
 }
 
 .text-bg-info {
@@ -6757,10 +6757,10 @@ textarea.form-control-lg {
 }
 
 .link-buttonmain {
-  color: #830A48 !important;
+  color: #1D828C !important;
 }
 .link-buttonmain:hover, .link-buttonmain:focus {
-  color: #69083a !important;
+  color: #176870 !important;
 }
 
 .link-info {

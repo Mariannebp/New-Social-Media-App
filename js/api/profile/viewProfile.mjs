@@ -31,7 +31,7 @@ export async function viewProfile() {
 
   if (avatar) {
     const img = document.createElement("img");
-    img.classList.add("d-flex", "align-items-center", "m-auto", "w-50")
+    img.classList.add("d-flex", "align-items-center", "m-auto", "w-75")
     img.src = avatar;
     img.alt = `Profile image of ${name}`;
     userAvatar.append(img);

@@ -22,9 +22,9 @@ if (path === `/pages/login.html`) {
   profile.checkIfLoggedIn();
   handler.setTogglePostFormListener();
   handler.setCreateNewPostListener();
-  posts.getPostsFeed();
-  posts.getPostsFeedSearched();
-  posts.getPostFeedFiltered();
+  posts.getPostsFeedMain();
+  posts.getPostsFeedSearchedMain();
+  posts.getPostFeedFilteredMain();
   handler.setLogoutListener();
 } else if (path === `/pages/singlePost.html`) {
   profile.checkIfLoggedIn();

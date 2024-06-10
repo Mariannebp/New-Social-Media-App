@@ -13,10 +13,12 @@ if (path === `/pages/login.html`) {
   profile.viewProfile();
   handler.setTogglePostFormListener();
   handler.setCreateNewPostListener();
+  handler.scrollToTop();
   handler.setLogoutListener();
 } else if (path === `/pages/editPost.html`) {
   profile.checkIfLoggedIn();
   handler.setUpdatePostListener();
+  handler.scrollToTop();
   handler.setLogoutListener();
 } else if (path === `/index.html`) {
   profile.checkIfLoggedIn();
@@ -25,10 +27,12 @@ if (path === `/pages/login.html`) {
   posts.getPostsFeedMain();
   posts.getPostsFeedSearchedMain();
   posts.getPostFeedFilteredMain();
+  handler.scrollToTop();
   handler.setLogoutListener();
 } else if (path === `/pages/singlePost.html`) {
   profile.checkIfLoggedIn();
   await posts.getPostSingle();
   handler.setCreateNewCommentListener();
+  handler.scrollToTop();
   handler.setLogoutListener();
 } 

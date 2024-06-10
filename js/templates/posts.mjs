@@ -201,7 +201,10 @@ export function postTemplate(postData) {
 
     if (comments && comments.length) {
 
-      comments.forEach(i => {
+      const commentsSorted = comments.sort((a, b) => Date.parse(b.created) - Date.parse(a.created));
+      console.log(commentsSorted)
+
+      commentsSorted.forEach(i => {
         const commentsEach = document.createElement("div");
         commentsEach.classList.add("border", "border-dark", "rounded", "mb-2");
 

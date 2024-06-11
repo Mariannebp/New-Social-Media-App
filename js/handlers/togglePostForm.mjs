@@ -1,7 +1,5 @@
-
-
 /**
- * Toggles Add a New Post form on home page
+ * Toggles Add a New Post form on home and profile page
  */
 export function setTogglePostFormListener() {
   const toggleForm = document.querySelector("#newPost");

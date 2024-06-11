@@ -8,6 +8,7 @@ import { load } from "../storage/index.mjs";
 export function postTemplateProfile(postData) {
   const { title, media, body, author, updated, id, _count } = postData;
   const userInfo = load("profile");
+  const { name } = author;
   const profile = userInfo.name;
 
   const post = document.createElement("div");

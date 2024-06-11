@@ -1,7 +1,8 @@
 import { getPostFeedUser } from "../../handlers/getPosts.mjs";
+import { toggleViewFollow } from "../../handlers/toggleFollowView.mjs";
 import { load } from "../../storage/index.mjs";
 import { getProfile } from "../posts/get.mjs";
-import { follow, unFollow } from "./follow.mjs";
+import * as p from "./index.mjs";
 
 /**
  * Sets up the content on the profile page
@@ -18,7 +19,7 @@ export async function viewProfile() {
   const newPostProfile = document.querySelector("#newPostProfile");
 
   const profileData = await getProfile();
-  const { name, email, _count, avatar, followers } = profileData;
+  const { name, email, _count, avatar, followers, following } = profileData;
 
   const headTitle = document.querySelector("title");
   headTitle.innerHTML = "The Place | " + name;
@@ -58,16 +59,20 @@ export async function viewProfile() {
 
     followButton.addEventListener("click", async () => {
       if (checkFollow) {
-        await unFollow(name);
+        await p.unFollow(name);
         followButton.innerHTML = "Follow +";
         location.reload();
       } else {
-        await follow(name);
+        await p.follow(name);
         followButton.innerHTML = "Following";
         location.reload();
       }
     })
   }
+
+  toggleViewFollow();
+  p.showFollowing(following)
+  p.showFollowers(followers)
 
   getPostFeedUser(name);
 }

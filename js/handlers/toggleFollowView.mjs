@@ -9,6 +9,11 @@ export function toggleViewFollow() {
   const followers = document.querySelector("#followers");
   const followersButton = document.querySelector("#followersButton");
 
+  if (window.innerWidth < 576) {
+    const followContainer = document.querySelector("#followContainer");
+    followContainer.classList.add("d-flex", "justify-content-around")
+  }
+
   followingButton.addEventListener("click", () => {
     following.classList.toggle("d-none");
   })

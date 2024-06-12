@@ -25,7 +25,7 @@ export function showFollowing(following) {
         userAvatar.style.objectFit = "cover";
 
         const userName = document.createElement("p");
-        userName.classList.add("ms-2", "mb-1", "text-secondary");
+        userName.classList.add("mb-1", "text-secondary");
         userName.innerHTML = i.name;
 
         followingUserLink.append(userAvatar, userName);
@@ -39,7 +39,7 @@ export function showFollowing(following) {
         userAvatar.style.objectFit = "cover";
 
         const userName = document.createElement("p");
-        userName.classList.add("ms-2", "mb-1", "text-secondary");
+        userName.classList.add("mb-1", "text-secondary");
         userName.innerHTML = i.name;
 
         followingUserLink.append(userAvatar, userName);
@@ -79,7 +79,7 @@ export function showFollowers(followers) {
 
       if (i.avatar && i.avatar.length) {
         const userAvatar = document.createElement("img");
-        userAvatar.classList.add("ms-3", "d-flex", "justify-items-start", "rounded-circle")
+        userAvatar.classList.add("d-flex", "justify-items-start", "rounded-circle")
         userAvatar.src = i.avatar;
         userAvatar.alt = "Avatar";
         userAvatar.height = "40";
@@ -87,13 +87,13 @@ export function showFollowers(followers) {
         userAvatar.style.objectFit = "cover";
 
         const userName = document.createElement("p");
-        userName.classList.add("ms-2", "mb-1", "text-secondary");
+        userName.classList.add("mb-1", "text-secondary");
         userName.innerHTML = i.name;
 
         followersUserLink.append(userAvatar, userName);
       } else {
         const userAvatar = document.createElement("img");
-        userAvatar.classList.add("ms-3", "d-flex", "justify-items-start", "rounded-circle")
+        userAvatar.classList.add("d-flex", "justify-items-start", "rounded-circle")
         userAvatar.src = "/assets/img/avatar-1606939.png";
         userAvatar.alt = "Avatar";
         userAvatar.height = "40";
@@ -101,7 +101,7 @@ export function showFollowers(followers) {
         userAvatar.style.objectFit = "cover";
 
         const userName = document.createElement("p");
-        userName.classList.add("ms-2", "mb-1", "text-secondary");
+        userName.classList.add("mb-1", "text-secondary");
         userName.innerHTML = i.name;
 
         followersUserLink.append(userAvatar, userName);

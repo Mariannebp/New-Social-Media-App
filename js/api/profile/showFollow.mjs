@@ -47,12 +47,10 @@ export function showFollowing(following) {
 
       followingUser.append(followingUserLink);
       followingContainer.append(followingUser)
-
     })
-
   } else {
     const noFollowing = document.createElement("p");
-    noFollowing.classList.add("ms-2", "mb-1", "fst-italic");
+    noFollowing.classList.add("mx-1", "mb-1", "fst-italic");
     noFollowing.innerHTML = "Not following anyone yet";
 
     followingContainer.append(noFollowing)
@@ -109,12 +107,11 @@ export function showFollowers(followers) {
 
       followersUser.append(followersUserLink);
       followersContainer.append(followersUser)
-
     })
 
   } else {
     const noFollowers = document.createElement("p");
-    noFollowers.classList.add("ms-2", "mb-1", "fst-italic");
+    noFollowers.classList.add("mx-1", "mb-1", "fst-italic");
     noFollowers.innerHTML = "Not following anyone yet";
 
     followersContainer.append(noFollowers)

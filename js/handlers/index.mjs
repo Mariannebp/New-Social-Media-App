@@ -8,3 +8,4 @@ export * from "./togglePostForm.mjs";
 export * from "./updatePost.mjs";
 export * from "./createComment.mjs";
 export * from "./scrollToTop.mjs";
+export * from "./updateAvatar.mjs";

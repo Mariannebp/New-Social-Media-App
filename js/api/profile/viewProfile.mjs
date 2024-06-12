@@ -3,6 +3,7 @@ import { toggleViewFollow } from "../../handlers/toggleFollowView.mjs";
 import { load } from "../../storage/index.mjs";
 import { getProfile } from "../posts/get.mjs";
 import * as p from "./index.mjs";
+import { updateAvatar } from "./updateAvatar.mjs";
 
 /**
  * Sets up the content on the profile page
@@ -11,12 +12,15 @@ export async function viewProfile() {
   const userName = document.querySelector("#userName");
   const userEmail = document.querySelector("#userEmail");
   const userAvatar = document.querySelector("#userAvatar");
+  const updateAvatarModal = document.querySelector("#modalUpdateAvatarButton");
   const userPostCount = document.querySelector("#postCount");
   const userFollowersCount = document.querySelector("#followersCount");
   const userFollowingCount = document.querySelector("#followingCount");
   const followButtonContainer = document.querySelector("#followButtonContainer");
   const followButton = document.querySelector("#followButton");
   const newPostProfile = document.querySelector("#newPostProfile");
+
+  const user = load("profile");
 
   const profileData = await getProfile();
   const { name, email, _count, avatar, followers, following } = profileData;
@@ -35,16 +39,20 @@ export async function viewProfile() {
     img.classList.add("d-flex", "align-items-center", "m-auto", "w-75")
     img.src = avatar;
     img.alt = `Profile image of ${name}`;
-    userAvatar.append(img);
+    userAvatar.prepend(img);
   } else {
     const img = document.createElement("img");
     img.classList.add("d-flex", "align-items-center", "m-auto", "w-50")
     img.src = "/assets/img/avatar-1606939.png";
     img.alt = "Profile avatar default";
-    userAvatar.append(img);
+    userAvatar.prepend(img);
   }
 
-  const user = load("profile");
+  if (user.name === name) {
+    updateAvatarModal.classList.remove("d-none");
+    const avatarValue = document.querySelector("#avatarValue");
+    avatarValue.innerHTML = avatar;
+  }
 
   if (user.name === name) {
     followButtonContainer.classList.add("d-none");

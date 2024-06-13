@@ -1,31 +1,31 @@
-import { renderPosts, renderPostFeedSearched, renderPostFeedFiltered, renderPostsUser, renderPostSingle } from "../templates/posts.mjs";
 import * as post from "../api/posts/index.mjs";
+import * as p from "../templates/index.mjs";
 
 /**
  * Function that will get the posts for the home page. 
  */
-export async function getPostsFeed() {
+export async function getPostsFeedMain() {
   const posts = await post.getPosts();
   const container = document.querySelector("#postsFeed");
-  renderPosts(posts, container)
+  p.renderPostsMain(posts, container)
 }
 
 /**
  * Function that will get the searched posts for the home page. 
  */
-export async function getPostsFeedSearched() {
+export async function getPostsFeedSearchedMain() {
   const posts = await post.getPosts();
   const container = document.querySelector("#postsFeed");
-  renderPostFeedSearched(posts, container)
+  p.renderPostFeedSearchedMain(posts, container)
 }
 
 /**
  * Function that will get the filtered posts for the home page.
  */
-export async function getPostFeedFiltered() {
+export async function getPostFeedFilteredMain() {
   const posts = await post.getPosts();
   const container = document.querySelector("#postsFeed");
-  renderPostFeedFiltered(posts, container)
+  p.renderPostFeedFilteredMain(posts, container)
 }
 
 /**
@@ -34,7 +34,7 @@ export async function getPostFeedFiltered() {
 export async function getPostFeedUser(name) {
   const posts = await post.getPostsProfile(name);
   const container = document.querySelector("#usersPosts");
-  renderPostsUser(posts, container)
+  p.renderPostsProfile(posts, container)
 }
 
 /**
@@ -48,6 +48,6 @@ export async function getPostSingle() {
 
   const postSingle = await post.getPost(id);
   const container = document.querySelector("#singlePost");
-  renderPostSingle(postSingle, container)
+  p.renderPostSingle(postSingle, container)
 }
 

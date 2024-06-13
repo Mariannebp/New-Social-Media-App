@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Social Media</title>
+    <title>The Place</title>
+    <link rel="icon" href="/assets/logo/Logo_Head.png" />
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <script type="module" src="./js/index.mjs" defer></script>
     <script
@@ -35,7 +36,7 @@
             </a>
             <ul class="dropdown-menu text-small">
               <li>
-                <a class="dropdown-item text-info" href="/pages/profile.html">My Profile</a>
+                <a class="dropdown-item text-info fst-italic" href="/index.html">Home</a>
               </li>
               <li><hr class="dropdown-divider" /></li>
               <li id="logout">
@@ -51,14 +52,14 @@
             </a>
         </div>
     </header>
-    <main class="container mt-auto mb-auto" style="max-width: 900px">
-      <section class="m-auto mt-4 mb-5" style="max-width: 700px">
-        <div class="shadow rounded bg-gray m-auto p-3">
-          <a id="newPost" class="btn">
-            <h1 class="h5">Add a new post</h1>
+    <main class="container text-center mb-auto" style="max-width: 900px">
+      <section class="m-auto mt-4 mb-5" style="max-width: 500px">
+        <div id="newPostMain" class="shadow rounded bg-buttonmain m-auto" type="button">
+          <a id="newPost" class="btn w-100">
+            <h1 id="newPostH1" class="h5 text-white">Add a new post</h1>
           </a>
           <form
-            class="d-flex flex-column justify-content-center visually-hidden"
+            class="d-flex flex-column justify-content-center  p-2 visually-hidden"
             id="addNewPost"
           >
             <label for="title" class="form-label text-start">Title</label>
@@ -87,10 +88,10 @@
         </div>
       </section>
       <section class="m-auto mb-5">
-        <h2>News</h2>
-        <div class="d-flex dropdown align-items-center justify-content-end me-3" id="filterContainer">
+        <h2 class="mb-3">News</h2>
+        <div class="d-flex dropdown align-items-center justify-content-between me-3" id="filterContainer">
           <div>
-            <form class="col-md-auto mb-3 me-3" role="search">
+            <form class="mb-3 me-2" role="search" style="max-width: 210px">
               <input
                 type="search"
                 id="search"
@@ -126,18 +127,15 @@
           </ul>
           </div>
         </div>
-        <div id="postsFeed"></div>
+        <div class="text-break" id="postsFeed"></div>
       </section>
     </main>
     <footer class="py-4">
-      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-muted">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="/pages/profile.html" class="nav-link px-2 text-muted">My Profile</a>
-        </li>
-      </ul>
+      <div class="nav justify-content-center border-bottom pb-3 mb-3">
+        <button id="toTop" class="btn nav-link px-2 text-muted">
+          <img src="../assets/icons/arrow-up-circle.png" style="width: 32px">
+        </button>
+      </div>
       <p class="text-center text-muted">© 2024 Marianne Bjerløv Pedersen</p>
     </footer>
   </body>

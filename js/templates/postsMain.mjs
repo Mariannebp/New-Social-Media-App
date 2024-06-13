@@ -5,10 +5,8 @@ import { load } from "../storage/index.mjs";
  * @param {string} postData that fetches the posts to be displayed.
  */
 export function postTemplateMain(postData) {
-  const { title, media, body, author, updated, id, _count, comments } = postData;
+  const { title, media, body, author, updated, id, _count } = postData;
   const { name, avatar } = author;
-  const userInfo = load("profile");
-  const profile = userInfo.name;
 
   const post = document.createElement("div");
   post.classList.add("shadow", "rounded", "bg-gray", "m-auto", "mb-4", "p-3");

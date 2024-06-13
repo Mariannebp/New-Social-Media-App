@@ -7,6 +7,7 @@ import * as p from "../templates/index.mjs";
 export async function getPostsFeedMain() {
   const posts = await post.getPosts();
   const container = document.querySelector("#postsFeed");
+  container.innerHTML = "";
   p.renderPostsMain(posts, container)
 }
 
@@ -48,6 +49,7 @@ export async function getPostSingle() {
 
   const postSingle = await post.getPost(id);
   const container = document.querySelector("#singlePost");
+  container.innerHTML = "";
   p.renderPostSingle(postSingle, container)
 }
 

@@ -1,5 +1,6 @@
 import { socialBaseUrl } from "../constants.mjs";
 import { authFetch } from "../authFetch.mjs";
+import { load } from "../../storage/index.mjs";
 // import { load } from "../../storage/index.mjs";
 
 const actionPosts = "/posts";
@@ -58,6 +59,15 @@ export async function getProfile() {
   const addOns = "?_followers=true&_following=true&_posts=true"
   const getProfileUrl = `${socialBaseUrl}${actionProfiles}${name}${addOns}`;
   const response = await authFetch(getProfileUrl);
+
+  return await response.json();
+}
+
+export async function getLoggedInAvatar() {
+  const userInfo = load("profile");
+  const { name } = userInfo;
+  const getLoggedInAvatarUrl = `${socialBaseUrl}${actionProfiles}${name}`;
+  const response = await authFetch(getLoggedInAvatarUrl);
 
   return await response.json();
 }

@@ -1,7 +1,7 @@
 {
-  "name": "css-frameworks-ca",
+  "name": "New Social Media App",
   "version": "1.0.0",
-  "description": "",
+  "description": "Social Media App",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mariannebp/CSS-Frameworks-CA.git"
+    "url": "git+https://github.com/Mariannebp/New-Social-Media-App.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Marianne Pedersen",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Mariannebp/CSS-Frameworks-CA/issues"
+    "url": "https://github.com/Mariannebp/New-Social-Media-App/issues"
   },
-  "homepage": "https://github.com/Mariannebp/CSS-Frameworks-CA#readme",
+  "homepage": "https://github.com/Mariannebp/New-Social-Media-App#readme",
   "devDependencies": {
     "live-server": "^1.2.2",
     "sass": "^1.69.5"

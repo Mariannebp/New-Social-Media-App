@@ -3,7 +3,6 @@ import { toggleViewFollow } from "../../handlers/toggleFollowView.mjs";
 import { load } from "../../storage/index.mjs";
 import { getProfile } from "../posts/get.mjs";
 import * as p from "./index.mjs";
-import { updateAvatar } from "./updateAvatar.mjs";
 
 /**
  * Sets up the content on the profile page

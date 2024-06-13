@@ -88,7 +88,7 @@ export function postTemplateMain(postData) {
 
   if (body && body.length) {
     const postBody = document.createElement("p");
-    const bodyLimited = body.split(' ').slice(0, 15).join(' ');
+    const bodyLimited = body.substring(0, 60);
     postBody.innerHTML = bodyLimited + "...";
 
     infoHolder.append(postBody);

@@ -26,7 +26,7 @@ export async function login(profile) {
     alert("You logged in!");
     storage.save("token", accessToken)
     storage.save("profile", user)
-    location.href = "profile.html";
+    location.href = "/index.html";
   } else {
     alert("Something went wrong, please try again")
   }

@@ -1,11 +1,15 @@
 import { load } from "../../storage/index.mjs";
+import { getLoggedInAvatar } from "../posts/get.mjs";
 
 /**
  * Sets profile avatar in header if user have registered one
  */
-export function setAvatarHeader() {
+export async function setAvatarHeader() {
   const profile = load("profile");
-  const { avatar, name } = profile;
+  const { name } = profile;
+  const getLoggedInUser = await getLoggedInAvatar();
+  const { avatar } = getLoggedInUser;
+
   const header = document.querySelector("#headerAvatar");
   header.setAttribute("href", `/pages/profile.html?name=${name}`)
   const avatarHolder = "../../../assets/img/avatar-1606939.png";

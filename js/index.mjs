@@ -16,7 +16,7 @@ if (path === `/pages/login.html`) {
   handler.setCreateNewPostListener();
   handler.scrollToTop();
   handler.setLogoutListener();
-} else if (path === `/pages/editPost.html`) {
+} else if (path === `/pages/editpost.html`) {
   profile.checkIfLoggedIn();
   handler.setUpdatePostListener();
   handler.scrollToTop();
@@ -30,7 +30,7 @@ if (path === `/pages/login.html`) {
   posts.getPostFeedFilteredMain();
   handler.scrollToTop();
   handler.setLogoutListener();
-} else if (path === `/pages/singlePost.html`) {
+} else if (path === `/pages/singlepost.html`) {
   profile.checkIfLoggedIn();
   await posts.getPostSingle();
   handler.setCreateNewCommentListener();

@@ -66,7 +66,7 @@ export function postTemplateProfile(postData) {
     readMore.classList.add("mb-4");
     const readMoreLink = document.createElement("a");
     readMoreLink.classList.add("text-info");
-    readMoreLink.setAttribute("href", `/pages/singlePost.html?id=${id}`);
+    readMoreLink.setAttribute("href", `/pages/singlepost.html?id=${id}`);
     readMoreLink.innerHTML = "See more";
 
     readMore.append(readMoreLink)
@@ -76,7 +76,7 @@ export function postTemplateProfile(postData) {
     readMore.classList.add("mb-4");
     const readMoreLink = document.createElement("a");
     readMoreLink.classList.add("text-info");
-    readMoreLink.setAttribute("href", `/pages/singlePost.html?id=${id}`);
+    readMoreLink.setAttribute("href", `/pages/singlepost.html?id=${id}`);
     readMoreLink.innerHTML = "See more";
 
     readMore.append(readMoreLink)
@@ -92,7 +92,7 @@ export function postTemplateProfile(postData) {
   const commentsLink = document.createElement("a");
   commentsLink.classList.add("d-flex", "align-items-center", "p-0", "btn", "text-decoration-none");
 
-  commentsLink.setAttribute("href", `/pages/singlePost.html?id=${id}`);
+  commentsLink.setAttribute("href", `/pages/singlepost.html?id=${id}`);
 
   const commentIcon = document.createElement("img");
   commentIcon.src = "/assets/icons/chat-dots-fill.png";
@@ -136,7 +136,7 @@ export function postTemplateProfile(postData) {
 
     buttons.append(editButton, deleteButton);
 
-    editButton.addEventListener("click", () => location.href = `editPost.html?id=${id}`)
+    editButton.addEventListener("click", () => location.href = `editpost.html?id=${id}`)
     deleteButton.addEventListener("click", async () => {
       await removePost(id);
       location.reload();

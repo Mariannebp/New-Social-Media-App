@@ -48,7 +48,7 @@ export async function getPostSingle() {
   const id = params.get("id");
 
   const postSingle = await post.getPost(id);
-  const container = document.querySelector("#singlePost");
+  const container = document.querySelector("#singlepost");
   container.innerHTML = "";
   p.renderPostSingle(postSingle, container)
 }

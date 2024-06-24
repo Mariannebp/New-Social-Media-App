@@ -8,7 +8,7 @@ export function checkIfLoggedIn() {
   const profile = load("profile");
 
   if (!profile) {
-    location.href = "/pages/notLoggedIn.html";
+    location.href = "/pages/not-logged-in.html";
   } else {
     setAvatarHeader();
   }

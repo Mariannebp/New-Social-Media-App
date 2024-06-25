@@ -14,7 +14,6 @@ export async function setUpdateAvatarListener() {
       const formData = new FormData(form);
       const update = Object.fromEntries(formData.entries());
 
-      console.log(update)
       await updateAvatar(update);
       form.reset();
       window.location.reload();

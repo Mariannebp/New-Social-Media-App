@@ -10,7 +10,7 @@ const method = "post"
 export async function register(profile) {
   const registerUrl = socialBaseUrl + action;
   const body = JSON.stringify(profile);
-  
+
   const response = await fetch(registerUrl, {
     headers: {
       "Content-Type": "application/json"
@@ -23,7 +23,7 @@ export async function register(profile) {
     alert("Registration was successful");
     location.href = "login.html";
   } else {
-    alert("Something went wrong, please try again")
+    alert("Something went wrong. The user you are trying to register might already exist. Please try again")
   }
 
 }

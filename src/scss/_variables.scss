@@ -3,21 +3,25 @@
 $light-pink: #F2A1C7;
 $redwine: #830A48;
 $blue: #4A6FA5;
+$logo: #446597;
 $teal: #1D828C;
 $gray-light: #F5F5F5;
 $gray-medium: #b9b9b9;
 $gray-dark: #8F8F8F;
+$gray-darker: #666666;
 $white: #fefefe;
 
 
 $primary: $light-pink;
 $secondary: $blue;
+$logo: $logo;
 $headerbg: $light-pink;
 $buttonmain: $teal;
 $info: $redwine;
 $gray: $gray-light;
 $medium: $gray-medium;
 $dark: $gray-dark;
+$darker: $gray-darker;
 $buttonedit: $blue;
 $buttondelete: $gray-medium;
 
@@ -25,18 +29,20 @@ $buttondelete: $gray-medium;
 $theme-colors: (
   "primary": $primary,
   "secondary": $secondary,
+  "logo": $logo,
   "buttonmain": $buttonmain,
   "info": $info,
   "headerbg": $headerbg,
   "gray": $gray,
   "medium": $medium,
   "dark": $dark,
+  "darker": $darker,
   "buttonedit": $buttonedit,
   "buttondelete": $buttondelete
 );
 
 $headings-color: $blue;
 
-.svg-placeholder {
-  fill: blue;
-}
+// .svg-placeholder {
+//   fill: blue;
+// }

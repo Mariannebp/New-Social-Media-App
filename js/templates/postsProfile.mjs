@@ -118,19 +118,21 @@ export function postTemplateProfile(postData) {
   if (profile === name) {
     const buttons = document.createElement("div");
     buttons.classList.add("d-flex", "justify-content-end", "align-items-center", "me-3");
-    const editButton = document.createElement("button");
+    const editButton = document.createElement("a");
     editButton.classList.add("btn", "p-1", "me-2");
     editButton.setAttribute("id", "editButton");
     const editButtonIcon = document.createElement("img");
     editButtonIcon.src = "/assets/icons/pencil-fill.png";
+    editButtonIcon.alt = "Edit";
     editButtonIcon.width = "24";
     editButton.append(editButtonIcon);
 
-    const deleteButton = document.createElement("button");
+    const deleteButton = document.createElement("a");
     deleteButton.classList.add("btn", "p-1");
     deleteButton.setAttribute("id", "deleteButton");
     const deleteButtonIcon = document.createElement("img");
     deleteButtonIcon.src = "/assets/icons/trash3-fill_edt.png";
+    deleteButtonIcon.alt = "Delete";
     deleteButtonIcon.width = "24";
     deleteButton.append(deleteButtonIcon);
 

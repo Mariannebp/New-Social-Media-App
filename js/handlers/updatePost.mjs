@@ -33,7 +33,7 @@ export async function setUpdatePostListener() {
 
       await updatePost(post);
       form.reset();
-      window.history.back();
+      window.history.go(-1);
     })
   }
 }

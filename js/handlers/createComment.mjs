@@ -17,7 +17,6 @@ export function setCreateNewCommentListener() {
 
       const body = newComment.value;
 
-      console.log(body)
       await createComment(id, {
         body: body,
       })

@@ -30,11 +30,7 @@ export async function removeComment(id, commentId) {
   const comment = "/comment"
   const removeCommentUrl = `${socialBaseUrl}${action}/${id}${comment}/${commentId}`;
 
-  // console.log(removeCommentUrl)
-
   const response = await authFetch(removeCommentUrl, {
     method
   })
-
-  // return await response.json();
 }

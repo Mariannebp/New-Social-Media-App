@@ -4,11 +4,12 @@ import * as handler from "./handlers/index.mjs";
 
 const path = location.pathname;
 
-if (path === `/pages/login.html`) {
+// Cover pathways on both netlify and local server
+if (path === `/pages/login.html` || path === `/pages/login`) {
   handler.setLoginUserFormListener();
-} else if (path === `/pages/register.html`) {
+} else if (path === `/pages/register.html` || path === `/pages/register`) {
   handler.setRegisterUserFormListener();
-} else if (path === `/pages/profile.html`) {
+} else if (path === `/pages/profile.html` || path === `/pages/profile`) {
   profile.checkIfLoggedIn();
   profile.viewProfile();
   handler.setUpdateAvatarListener();
@@ -16,12 +17,12 @@ if (path === `/pages/login.html`) {
   handler.setCreateNewPostListener();
   handler.scrollToTop();
   handler.setLogoutListener();
-} else if (path === `/pages/editpost.html`) {
+} else if (path === `/pages/editpost.html` || path === `/pages/editpost`) {
   profile.checkIfLoggedIn();
   handler.setUpdatePostListener();
   handler.scrollToTop();
   handler.setLogoutListener();
-} else if (path === `/index.html`) {
+} else if (path === `/index.html` || path === `/`) {
   profile.checkIfLoggedIn();
   handler.setTogglePostFormListener();
   handler.setCreateNewPostListener();
@@ -30,7 +31,7 @@ if (path === `/pages/login.html`) {
   posts.getPostFeedFilteredMain();
   handler.scrollToTop();
   handler.setLogoutListener();
-} else if (path === `/pages/singlepost.html`) {
+} else if (path === `/pages/singlepost.html` || path === `/pages/singlepost`) {
   profile.checkIfLoggedIn();
   await posts.getPostSingle();
   handler.setCreateNewCommentListener();

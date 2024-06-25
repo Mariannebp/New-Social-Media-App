@@ -142,7 +142,12 @@ export function postTemplateSingle(postData) {
   commentInput.setAttribute("maxLength", 280);
   commentInput.setAttribute("placeholder", "Comment...");
 
-  commentsAdd.append(commentInput);
+  const commentInputLabel = document.createElement("label");
+  commentInputLabel.setAttribute("for", "newComment");
+  commentInputLabel.classList.add("form-label", "visually-hidden");
+  commentInputLabel.innerHTML = "comment field";
+
+  commentsAdd.append(commentInputLabel, commentInput);
 
   const commentButton = document.createElement("button");
   commentButton.classList.add("btn");
@@ -271,7 +276,7 @@ export function postTemplateSingle(postData) {
       const timeAgo = timeElapsed(new Date(), time);
 
       const timeCount = document.createElement("p");
-      timeCount.classList.add("me-3", "mb-1", "text-dark", "text-end");
+      timeCount.classList.add("me-3", "mb-1", "text-darker", "text-end");
       timeCount.setAttribute("style", "font-size: 0.9rem");
       timeCount.innerHTML = timeAgo;
 
@@ -281,7 +286,7 @@ export function postTemplateSingle(postData) {
     })
   } else {
     const commentsEmpty = document.createElement("p");
-    commentsEmpty.classList.add("ms-3", "mb-2", "text-dark", "fst-italic");
+    commentsEmpty.classList.add("ms-3", "mb-2", "text-darker", "fst-italic");
     commentsEmpty.innerHTML = "No comments yet..";
 
     commentSection.append(commentsEmpty);

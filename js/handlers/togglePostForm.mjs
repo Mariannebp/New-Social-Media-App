@@ -12,7 +12,7 @@ export function setTogglePostFormListener() {
 
   toggleForm.addEventListener("click", () => {
     postForm.classList.toggle("visually-hidden");
-    if (path === `/index.html`) {
+    if (path === `/index.html` || path === `/`) {
       postFormColorMain.classList.toggle("bg-buttonmain");
       postFormColorMain.classList.toggle("bg-gray");
     } else {
